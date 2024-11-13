@@ -16,13 +16,13 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Auteur:
-  Sanne 't Hooft (vervangen door jouw naam)
+  Vincent de Jager
 
   #### Je startniveau:
-  hier je startniveau (kies uit zwart, rood óf blauw)
+  Ik zeg nog rood, maar gezien resultaten van vorige vakken kan ik misschien zwart zeggen.
 
   #### Je focus:
-  hier je focus (kies uit responsive óf surface plane)
+  Ik zal beginnen met responsive, maar doe graag allebei
  
 </details>
 
@@ -36,15 +36,15 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
-  link naar de website die je gaat namaken óf de naam/omschrijving van je eigen ontwerp
+  (https://www.imdb.com/)
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="readme-images/web-imdb-1.png" width="375px" alt="De homepagina van film website IMDb die populaire en actuele films toont">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="readme-images/web-imdb-2.png" width="375px" alt="Een film overzicht pagina die info van een specefieke film toont">
  
 </details>
 
