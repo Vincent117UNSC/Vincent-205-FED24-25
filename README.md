@@ -39,12 +39,14 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   (https://www.imdb.com/)
 
   #### Screenshot(s) van de eerste pagina (small screen): 
-  hier de naam van de pagina  
-  <img src="readme-images/web-imdb-1.png" width="375px" alt="De homepagina van film website IMDb die populaire en actuele films toont">
+  Home pagina IMDb  
+  <img src="readme-images/mobile-imdb-1.png" width="375px" alt="De homepagina van film website IMDb op telefoonscherm die populaire en actuele films toont">
+  <img src="readme-images/web-imdb-1.png" width="375px" alt="De homepagina van film website IMDb op computerscherm die populaire en actuele films toont">
 
   #### Screenshot(s) van de tweede pagina (small screen):
-  hier de naam van de pagina  
-  <img src="readme-images/web-imdb-2.png" width="375px" alt="Een film overzicht pagina die info van een specefieke film toont">
+  Film overzicht pagina op IMDb 
+  <img src="readme-images/mobile-imdb-2.png" width="375px" alt="Een film overzicht pagina op telefoonscherm die info van een specefieke film toont">
+  <img src="readme-images/web-imdb-2.png" width="375px" alt="De homepagina van film website IMDb op computerscherm die populaire en actuele films toont">
  
 </details>
 
