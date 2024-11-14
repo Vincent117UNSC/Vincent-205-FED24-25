@@ -36,17 +36,17 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
-  (https://www.imdb.com/)
+  (https://www.rituals.com/nl-nl/home#home)
 
   #### Screenshot(s) van de eerste pagina (small screen): 
-  Home pagina IMDb  
-  <img src="readme-images/mobile-imdb-1.jpeg" width="375px" alt="De homepagina van film website IMDb op telefoonscherm die populaire en actuele films toont">
-  <img src="readme-images/web-imdb-1.png" width="375px" alt="De homepagina van film website IMDb op computerscherm die populaire en actuele films toont">
+  Home pagina Rituals
+  <img src="readme-images/rituals-home-tel.jpeg" width="375px" alt="Rituals home pagina op telefoon">
+  <img src="readme-images/rituals-home-web.jpg" width="375px" alt="Rituals home pagina op desktop en laptop">
 
   #### Screenshot(s) van de tweede pagina (small screen):
-  Film overzicht pagina op IMDb 
-  <img src="readme-images/mobile-imdb-2.jpeg" width="375px" alt="Een film overzicht pagina op telefoonscherm die info van een specefieke film toont">
-  <img src="readme-images/web-imdb-2.png" width="375px" alt="De homepagina van film website IMDb op computerscherm die populaire en actuele films toont">
+  Product overzicht pagina bij Rituals 
+  <img src="readme-images/rituals-detailpagina-tel.jpeg" width="375px" alt="Rituals product overzicht pagina op telefoon">
+  <img src="readme-images/rituals-detailpagina-web.jpg" width="375px" alt="Rituals product overzicht pagina op desktop en laptop">
  
 </details>
 
