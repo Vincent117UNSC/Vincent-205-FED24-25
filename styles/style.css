@@ -26,6 +26,24 @@
 /****************/
 /* JOUW STYLING */
 /****************/
+body {
+	background: var(--color-background);
+}
 
+img {
+	max-width: 20px;
+}
+
+header li img {
+	max-height: 15px;
+}
+
+main img {
+	max-width: 100px;
+}
+
+h2 {
+	font-size: 1em;
+}
 /* jouw code */
 
