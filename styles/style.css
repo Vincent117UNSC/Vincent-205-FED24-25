@@ -43,6 +43,11 @@ main img {
 	max-width: 100px;
 }
 
+main button img {
+	min-height: 20px;
+	min-width: 20px;
+}
+
 h2 {
 	font-size: 1em;
 }
