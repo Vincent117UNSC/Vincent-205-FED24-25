@@ -3,6 +3,8 @@
 /**************/
 *, *::after, *::before {
   box-sizing:border-box;  
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -13,10 +15,19 @@
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
+@font-face {
+	font-family: Scala Sans Pro;
+	src: url(../fonts/scala-sans-pro/scala-sans-pro-regular.ttf);
+}
+
+@font-face {
+	font-family: ClassGarmnd BT;
+	src: url(../fonts/class-garmnd-bt/classical-garamond-bt.ttf);
+}
+
 :root {
-	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
+	--color-gray:#242222;
+	--color-dark-gray:#1a1919;
 }
 
 
@@ -26,8 +37,57 @@
 /****************/
 /* JOUW STYLING */
 /****************/
+
+							/*top nav bar (header)*/
+header nav {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: var(--color-dark-gray);
+
+	translate: -100% 0%;
+}
+
+					/*hamburgermenu*/
+header nav:first-of-type.menuOpen {
+	height: 100%;
+    overflow-y: auto;
+
+	translate: 0% 0%;
+}
+
+body.menuOpen {
+    overflow: hidden;
+}
+
+header nav:first-of-type ul > li {
+    position: relative;
+}
+
+header nav:first-of-type ul > li > section {
+	position: absolute;
+	translate: -100% 0%;
+}
+
+header nav:first-of-type ul > li > section.menuItemOpen {
+	position: absolute;
+    translate: 0% 0%;
+	z-index: 1;
+	background-color: var(--color-dark-gray);
+}
+
+					/*zoeken*/
+header nav:nth-of-type(2).zoekOpen {
+	translate: 0% 0%;
+}
+
+
+/* tijdelijk */
 body {
 	background: var(--color-background);
+	font-family: "Scala Sans Pro";
 }
 
 img {
@@ -37,6 +97,10 @@ img {
 header li img, header button img {
 	height: 20px;
 	width: 20px;
+}
+
+header > a img {
+	background-color: #1a1919;
 }
 
 main img {
