@@ -21,99 +21,472 @@
 }
 
 @font-face {
+	font-family: Scala Sans Pro Light;
+	src: url(../fonts/scala-sans-pro/scala-sans-pro-light.ttf);
+}
+
+@font-face {
+	font-family: Scala Sans Pro Light-italic;
+	src: url(../fonts/scala-sans-pro/scala-sans-pro-light-italic.ttf);
+}
+
+@font-face {
 	font-family: ClassGarmnd BT;
 	src: url(../fonts/class-garmnd-bt/classical-garamond-bt.ttf);
+}
+
+@font-face {
+	font-family: ClassGarmnd BT Light;
+	src: url(../fonts/class-garmnd-bt/classical-garamond-bt-light.ttf);
 }
 
 :root {
 	--color-gray:#242222;
 	--color-dark-gray:#1a1919;
+	--color-text-white:#ffffff;
+	--color-secondary-text-gray:#453f3f;
+	--color-lightbrown-darkbg:#b8a188;
+	--color-brown-lightbg:#9a7b69;
+	--color-icon-white:#ffffff;
 }
 
+body {
+	font-family: "Scala Sans Pro Light";
+}
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: "ClassGarmnd BT";
+}
 
+body input {
+	font-family: "Scala Sans Pro Ita";
+}
 
+			/************************/
+			/* top nav bar (header) */
+			/************************/
+main {
+	margin-top: 6em;
+}
 
-/****************/
-/* JOUW STYLING */
-/****************/
-
-							/*top nav bar (header)*/
-header nav {
+header {
 	position: fixed;
+	top: 0;
 	left: 0;
 	right: 0;
-	top: 0;
-	bottom: 0;
-	background-color: var(--color-dark-gray);
+	transition: top 0.5s linear;
+}
 
-	translate: -100% 0%;
+header.nav-up {
+	top: -6em
+}
+
+header > div {
+	display: flex;
+	background-color: var(--color-dark-gray);
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em;
+	height: 4em;
+}
+
+header div button {
+	border: none;
+	background: none;
+	padding: 0;
+	font-size: 1em;
+	line-height: normal;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	height: auto;
+	cursor: pointer;
+}
+
+header svg {
+	stroke: var(--color-icon-white);
+	stroke-linecap: round;
+	stroke-linejoin: miter;
+	stroke-miterlimit: 10;
+	stroke-width: 3px;
+	flex-shrink: 0;
+	fill: none;
+}
+
+header div > button svg, header div > div > a svg {
+	max-height: 1.5em;
+	min-width: 1.5em;
+	margin: 0 .3em;
+}
+
+header div > div > a {
+	text-decoration: none;
+}
+
+header div > nav > div > button > svg {
+	max-height: 1.1em;
+}
+
+header div nav div div a svg {
+	max-height: 1.5em;
+	min-width: 1.5em;
+	margin: 0 .5em;
+}
+
+header > div > a img {
+	max-height: 1.5em;
+	min-width: 8.2em;
+}
+
+header > ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2em;
+	background-color: var(--color-gray);
+	text-align: center;
+	list-style-type: none;
+	line-height: 1em;
+	color: var(--color-text-white);
+}
+
+header > ul li {
+	display: none;
+    animation: fadeInOut 3.5s ease-in-out forwards;
+    animation-play-state: paused;
+}
+
+header ul li.active {
+	display: block;
+	animation-play-state: running;
+	font-size: 0.75em;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+	80% {
+		opacity: 1;
+	}
+    100% {
+        opacity: 0;
+    }
+}
+
+header > ul li a {
+	color: var(--color-lightbrown-darkbg);
 }
 
 					/*hamburgermenu*/
-header nav:first-of-type.menuOpen {
-	height: 100%;
-    overflow-y: auto;
+header div nav,
+header div > nav ul > li > section,
+header div > nav ul > li > section > ul > li > section {
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100vh;
+	max-height: 100%;
 
-	translate: 0% 0%;
+	background: var(--color-dark-gray);
 }
 
-body.menuOpen {
-    overflow: hidden;
-}
-
-header nav:first-of-type ul > li {
-    position: relative;
-}
-
-header nav:first-of-type ul > li > section {
-	position: absolute;
-	translate: -100% 0%;
-}
-
-header nav:first-of-type ul > li > section.menuItemOpen {
-	position: absolute;
-    translate: 0% 0%;
+header div > nav {
 	z-index: 1;
+}
+
+header div > nav ul > li > section {
+	z-index: 2;
+	padding-top: 4em;
+}
+
+header div > nav ul > li > section > ul > li > section {
+	z-index: 3;
+}
+
+.menuOpenBodyHidden {
+	overflow: hidden;
+}
+
+.menuOpen, .laagTweeOpen, .laagDrieOpen {
+	overflow: auto;
+}
+
+.openButHidden {
+	overflow: hidden;
+}
+
+					/*hamburgermenu en zoeken*/
+
+header div > nav > div, header div > div nav > div {
+	position: sticky;
+	display: flex;
+	top: 0;
+	width: 100%;
+	z-index: 4;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-gray);
+	height: 4em;
+}
+
+header div > nav > div div, header div > div nav div > div {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
 	background-color: var(--color-dark-gray);
+	height: 3em;
+	margin: 0.5em 0.5em 0.5em 0;
+	padding: 0 0.5em;
+	border-radius: 1.5em;
+}
+
+header div > nav > div div input {
+	all: unset;
+	flex-grow: 1;
+	margin-left: 0.5em;
+	color: var(--color-text-white);
+	font-family: "Scala Sans Pro light-italic";
+}
+
+header div > nav > div div input::placeholder {
+	color: var(--color-text-white);
+	opacity: 0.8;
+}
+
+					/*hamburgermenu from 1st layer*/
+header div > nav > ul svg {
+	height: 0.6em;
+	min-width: 0;
+	transform: rotate(180deg);
+}
+
+header div > nav > div div a {
+	display: flex;
+}
+
+header div > nav > div button {
+	margin: 0 1em;
+}
+
+header div > nav > ul {
+	margin: 2.2em 0.5em;
+	list-style: none;
+}
+
+header div nav ul li > button, header div nav > ul > li > section > a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.9em 1em;
+	gap: 1rem;
+	width: 100%;
+}
+
+header div nav ul li > button p, header div nav > ul > li:first-of-type > section a p {
+	font-family: "ClassGarmnd BT";
+	color: var(--color-text-white);
+	font-size: 1.5em;
+}
+
+header div nav ul > li > a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-decoration: none;
+	padding: 0.9em 1em;
+	width: 100%;
+}
+
+header div nav ul:nth-of-type(2) > li > a p {
+	color: var(--color-text-white);
+	font-size: 1.3em;
+}
+
+					/*hamburgermenu from 2nd layer*/
+header div nav ul li section > button {
+	margin: 1em;
+	padding: 0.7em;
+}
+
+header div nav ul li section > button:first-child svg {
+	stroke-width: 2px;
+	height: 0.9em;
+	transform: rotate(0deg);
+}
+
+header div nav > ul > li section h2 {
+	font-size: 1em;
+	padding: 1em 1.5em;
+}
+
+header div nav > ul > li section h2 > a {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	text-decoration: none;
+	padding-right: 1em;
+}
+
+header div nav > ul > li section h2 > a > span {
+	display: inline-block;
+	padding: 0.10rem 0;
+	position: relative;
+	font-family: "Scala Sans Pro Light";
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 0.8em;
+	letter-spacing: 0.1em;
+	margin-right: 0.5em;
+	color: var(--color-text-white);
+}
+
+/*Underline annimation bron: https://www.youtube.com/watch?v=n8dPFkT0dpE*/
+header div nav > ul > li section h2 > a > span::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 1px;
+	background-color: var(--color-text-white);
+	transition: width 150ms linear;
+}
+
+header div nav > ul > li section h2 > a > span:hover::before {
+	width: 100%;
+}
+
+header div nav > ul > li section h2 > a > svg {
+	stroke-width: 10px;
+	height: 0.5em;
+	opacity: 80%;
+}
+
+header div nav h3 {
+	color: var(--color-lightbrown-darkbg);
+	font-size: 0.75em;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 1em 2em;
+	margin-top: 1em;
+}
+
+header div nav > ul > li > section ul:last-child {
+	margin-bottom: 2em;
+}
+
+header div nav > ul > li:first-of-type > section ul li a,
+header div nav > ul > li > section ul li > button {
+	padding: 0.7em 1.5em;
+}
+
+					/*hamburgermenu from 3rd layer*/
+header div nav > ul > li > section > ul > li > section > ul {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	list-style: none;
+	margin: 0.5em;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li {
+	grid-column: span 1;
+}
+
+header div nav > ul > li > section > ul > li > section > ul:has(li:only-child) li {
+	grid-column: span 2;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li p {
+	color: var(--color-text-white);
+	font-size: 0.85em;
+	opacity: 60%;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li:hover p {
+	opacity: 100%;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li img {
+	width: 100%;
+	height: auto;
+	box-shadow: 0 0 1em 1em transparent inset;
+	mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /*via chatGPT*/
 }
 
 					/*zoeken*/
-header nav:nth-of-type(2).zoekOpen {
-	translate: 0% 0%;
+.zoekOpen {
+	overflow: auto;
 }
 
-
-/* tijdelijk */
-body {
-	background: var(--color-background);
+header div > div nav section {
+	background-color: white;
+	height: calc(100% - 4em);
 	font-family: "Scala Sans Pro";
+	padding: 1.5em;
 }
 
-img {
-	max-width: 20px;
+header div > div nav section ul {
+	list-style: none;
 }
 
-header li img, header button img {
-	height: 20px;
-	width: 20px;
+header div > div nav section ul li {
+	margin: 1em 0;
 }
 
-header > a img {
-	background-color: #1a1919;
-}
-
-main img {
-	max-width: 100px;
-}
-
-main button img {
-	min-height: 20px;
-	min-width: 20px;
-}
-
-h2 {
+header div > div nav section ul li a,
+header div > div nav section h4  {
+	color: var(--color-secondary-text-gray);
+	font-family: "Scala Sans Pro Light";
 	font-size: 1em;
-}
-/* jouw code */
 
+}
+
+header div > div nav section ul li a:hover {
+	text-decoration: underline;
+}
+
+header div > div nav section h4 {
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 0.8em;
+	font-weight: 200;
+	margin: 0.5em 0 1.5em;
+}
+
+			/********************/
+			/* MAIN, homepagina */
+			/********************/
+
+main section:first-of-type ul:nth-of-type(2) {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	overflow: hidden;
+}
+
+main section:first-of-type ul:nth-of-type(2) li {
+	display: flex;
+	justify-content: center;
+}
+
+main section:first-of-type ul:nth-of-type(2) li div {
+	
+}
