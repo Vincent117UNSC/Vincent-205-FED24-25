@@ -75,6 +75,7 @@ header {
 	left: 0;
 	right: 0;
 	transition: top 0.5s linear;
+	z-index: 1000;
 }
 
 header.nav-up {
@@ -298,7 +299,7 @@ header div nav ul li > button p, header div nav > ul > li:first-of-type > sectio
 	font-size: 1.5em;
 }
 
-header div nav ul > li > a {
+header > div > nav ul > li > a {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -455,8 +456,8 @@ header div > div nav section ul li a,
 header div > div nav section h4  {
 	color: var(--color-secondary-text-gray);
 	font-family: "Scala Sans Pro Light";
+	text-decoration: none;
 	font-size: 1em;
-
 }
 
 header div > div nav section ul li a:hover {
@@ -475,6 +476,23 @@ header div > div nav section h4 {
 			/* MAIN, homepagina */
 			/********************/
 
+main h1 {
+	visibility: hidden;
+	height: 0;
+}
+
+main section:first-of-type ul:first-of-type {
+	display: flex;
+	overflow-x: scroll;
+	list-style: none;
+}
+
+main section:first-of-type ul:first-of-type li {
+	white-space: nowrap;
+	padding: 0.3em;
+	margin: 0.3em;
+}
+
 main section:first-of-type ul:nth-of-type(2) {
 	display: flex;
 	flex-direction: column;
@@ -483,10 +501,55 @@ main section:first-of-type ul:nth-of-type(2) {
 }
 
 main section:first-of-type ul:nth-of-type(2) li {
+	position: relative;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	height: calc(100vh - 6em);
+}
+
+main section:first-of-type ul:nth-of-type(2) li video,
+main section:first-of-type ul:nth-of-type(2) li img {
+	position: absolute;
+	min-height: calc(100vh - 6em);
+	height: 100%;
+	z-index: 1;
 }
 
 main section:first-of-type ul:nth-of-type(2) li div {
-	
+	position: absolute;
+	top: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 70%;
+	color: var(--color-text-white);
+	z-index: 2;
+}
+
+main section:first-of-type ul:nth-of-type(2) li div h2 {
+	order: 1;
+	font-size: 2em;
+	text-align: center;
+}
+
+main section:first-of-type ul:nth-of-type(2) li div h3 {
+	order: 0;
+	font-size: 0.8em;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+main section:first-of-type ul:nth-of-type(2) li div a {
+	order: 2;
+	background: #ffffff;
+	text-decoration: none;
+	color: #1a1919;
+	text-transform: uppercase;
+	padding: 1em 2em;
+	margin: 1em 0;
+	font-size: 0.8em;
 }
