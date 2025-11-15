@@ -785,7 +785,7 @@ main section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(2) {
 main section:nth-of-type(2) {
 	display: flex;
 	flex-direction: column;
-	margin: 0em 1.5em;
+	margin: 1em 1.5em;
 }
 
 main section:nth-of-type(2) h2 {
@@ -825,7 +825,7 @@ main section:nth-of-type(2) h3 {
 	grid-column: 1/3;
 	font-size: 1rem;
 	font-weight: 500;
-	margin: 0.5em 0 0.25em;
+	margin: 0.5em 0.3em 0.25em;
 }
 
 .articles-container > article > img {
@@ -851,6 +851,7 @@ main section:nth-of-type(2) h3 {
 	grid-row: 4/5;
 	grid-column: 1/3;
 	font-size: 0.75rem;
+	margin: 0 0.3em;
 	color: var(--color-secondary-text-lightgray);
 }
 
@@ -858,8 +859,7 @@ main section:nth-of-type(2) h3 {
 	display: flex;
 	grid-row: 5/6;
 	grid-column: 1/3;
-	margin-top: 0.3em;
-	margin-bottom: 1em;
+	margin: 0.3em 0.3em 1em;
 	list-style: none;
 }
 
@@ -889,6 +889,7 @@ main section:nth-of-type(2) h3 {
 .articles-container > article > p:has(+ button) {
 	grid-row: 6 / 7;
 	grid-column: 1 / 3;
+	margin-left: 0.3em;
 	font-size: 1rem;
 	line-height: 1.25em;
 	font-weight: 400;
@@ -899,6 +900,7 @@ main section:nth-of-type(2) h3 {
 .articles-container > article > p:has(+ p + button):not(:is(img + p.product-badge + p,img + p:not(.product-badge))) {
 	grid-row: 6 / 7;
 	grid-column: 1 / 3;
+	margin-left: 0.3em;
 	font-size: 1rem;
 	line-height: 1.25em;
 	font-weight: 400;
@@ -916,6 +918,7 @@ main section:nth-of-type(2) h3 {
 	align-self: end;
 	height: 3.8em;
 	width: 3.8em;
+	margin-right: 0.3em;
 	border: 1px solid rgba(26, 25, 25, 0.16);
 	background-color: transparent;
 	border-radius: 2em;
@@ -941,15 +944,16 @@ main section:nth-of-type(2) h3 {
 .articles-container > article > div {
 	grid-row: 7/8;
 	grid-column: 1/3;
-	margin: 0.5em 0 0.2em;
+	margin: 0.5em 0.3em 0.2em;
 	border-bottom: 1px solid rgba(26, 25, 25, 0.16);
-	width: 100%;
+	width: calc(100% - 0.6em);
 }
 
 .articles-container > article > div + p {
 	grid-row: 8/9;
 	grid-column: 1/3;
 	font-size: 0.75rem;
+	margin: 0 0.3em;
 	color: var(--color-secondary-text-lightgray);
 }
 
@@ -962,7 +966,55 @@ main section:nth-of-type(2) h3 {
 }
 
 /* Derde section */
+main > article {
+	display: flex;
+	flex-direction: column;
+	margin: 2.5em 1.5em;
+}
 
+main > article h2 {
+	order: 2;
+	margin-top: 0.5rem;
+}
+
+main > article h3 {
+	order: 1;
+	margin-top: 1.5rem;
+}
+
+main > article img {
+	width: 100%;
+	order: 0;
+}
+
+main > article p {
+	order: 3;
+	margin-top: 1em;
+	line-height: 1.5em;
+	color: var(--color-secondary-text-gray);
+}
+
+main > article a {
+	order: 4;
+	margin-top: 1.5em;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	color: var(--color-text-black);
+	font-weight: 400;
+	font-size: 0.75rem;
+	letter-spacing: 0.1rem;
+	border: 1px solid rgba(26, 25, 25, 0.16);
+	background-color: transparent;
+	width: fit-content;
+	transition: color 0.2s ease, border 0.2s ease, background-color 0.2s ease;
+}
+
+main > article a:hover {
+	color: var(--color-text-white);
+	border: 1px solid #1a1919;
+	background-color: #1a1919;
+	transition: color 0.2s ease, border 0.2s ease, background-color 0.2s ease;
+}
 
 
 
