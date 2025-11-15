@@ -22,7 +22,7 @@ const terugZoekenButton = document.querySelector("header div > div nav div butto
 const ulTop = document.querySelector("header ul")
 const listItems = ulTop.querySelectorAll("li")
 
-const horizontalScroll = document.querySelector("main section:first-of-type ul:first-of-type")
+const horizontalScrollElements = document.querySelectorAll("main section:first-of-type ul:first-of-type, .articles-container")
 
 const carouselItems = document.querySelectorAll("main section:first-of-type ul:nth-of-type(2) li")
 const carouselNavButtons = document.querySelectorAll("main section:first-of-type > div > nav > ul > li > button")
@@ -38,6 +38,7 @@ let scrollLeft;
 let isDown;
 let hasMoved = false
 let isDragging = false
+let currentScrollTarget = null
 
 let activeSlide = 0
 let isTransitioning = false
@@ -145,35 +146,31 @@ sluitButtonsLaag3.forEach((button, index) => {
 
 // Horizontaal scrollen met muis on draggen bron: https://codepen.io/Gutto/pen/GBLPyN
 function mouseIsDown(e){
-  isDown = true
-  hasMoved = false
-  isDragging = false
-  startX = e.pageX - horizontalScroll.offsetLeft
-  scrollLeft = horizontalScroll.scrollLeft
+    currentScrollTarget = e.currentTarget
+    isDown = true
+    hasMoved = false
+    isDragging = false
+    startX = e.pageX - currentScrollTarget.offsetLeft
+    scrollLeft = currentScrollTarget.scrollLeft
 }
 function mouseUp(e){
-  isDown = false
-  setTimeout(() => {
-    isDragging = false
-  }, 10)
+    isDown = false
+    setTimeout(() => {isDragging = false}, 10)
 }
 function mouseLeave(e){
-  isDown = false
-  setTimeout(() => {
-    isDragging = false
-  }, 10)
+    isDown = false
+    setTimeout(() => {isDragging = false}, 10)
 }
 function mouseMove(e){
-  if(isDown){
+    if(!isDown || !currentScrollTarget) return
     e.preventDefault()
-    const x = e.pageX - horizontalScroll.offsetLeft
+    const x = e.pageX - currentScrollTarget.offsetLeft
     const walkX = x - startX
     if (Math.abs(walkX) > 5) {
-      hasMoved = true
-      isDragging = true
+        hasMoved = true
+        isDragging = true
     }
-    horizontalScroll.scrollLeft = scrollLeft - walkX
-  }
+    currentScrollTarget.scrollLeft = scrollLeft - walkX
 }
 
 function updateCarousel(direction) {
@@ -250,18 +247,18 @@ window.addEventListener("scroll", function(){
     lastScrollTop = st <= 0 ? 0 : st
 }, false)
 
-horizontalScroll.addEventListener('mousedown',e => mouseIsDown(e))
-horizontalScroll.addEventListener('mouseup',e => mouseUp(e))
-horizontalScroll.addEventListener('mouseleave',e=>mouseLeave(e))
-horizontalScroll.addEventListener('mousemove',e=>mouseMove(e))
-horizontalScroll.addEventListener('click', (e) => {
-  if (hasMoved || isDragging) {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-}, true)
-horizontalScroll.addEventListener('dragstart', (e) => {
-  e.preventDefault()
+horizontalScrollElements.forEach(el => {
+    el.addEventListener('mousedown', mouseIsDown)
+    el.addEventListener('mouseup', mouseUp)
+    el.addEventListener('mouseleave', mouseLeave)
+    el.addEventListener('mousemove', mouseMove)
+    el.addEventListener('click', (e) => {
+        if (hasMoved || isDragging) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+    }, true)
+    el.addEventListener('dragstart', (e) => e.preventDefault())
 })
 
 carouselNavButtons.forEach((button, index) => {

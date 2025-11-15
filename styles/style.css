@@ -41,22 +41,46 @@
 }
 
 :root {
+	/* Colors */
 	--color-gray:#242222;
 	--color-dark-gray:#1a1919;
 	--color-text-white:#ffffff;
+	--color-text-black:#1a1919;
+	--color-small-titles-darkbeige: #816356;
 	--color-secondary-text-gray:#453f3f;
+	--color-secondary-text-lightgray:#626262;
 	--color-lightbrown-darkbg:#b8a188;
 	--color-brown-lightbg:#9a7b69;
 	--color-icon-white:#ffffff;
+	/* Fonts */
+	--font-body: "Scala Sans Pro Light", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+	--font-titles: "ClassGarmnd BT", "Georgia", "Times New Roman", serif;
 }
 
 body {
-	font-family: "Scala Sans Pro Light";
+	font-family: var(--font-body);
 	overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "ClassGarmnd BT";
+	font-family: var(--font-titles);
+}
+
+h2 {
+	font-size: 1.75em;
+	font-weight: 500;
+	line-height: 1.5em;
+	color: var(--color-text-black);
+	order: 1;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	letter-spacing: 0.1em;
+	font-weight: 400;
+	color: var(--color-small-titles-darkbeige);
+	order: 0;
 }
 
 body input {
@@ -477,7 +501,7 @@ header div > div nav section h4 {
 			/********************/
 			/* MAIN, homepagina */
 			/********************/
-
+/* Eerste section */
 main h1 {
 	visibility: hidden;
 	height: 0;
@@ -583,7 +607,7 @@ main section:first-of-type ul:nth-of-type(2) li.active video {
 
 main section:first-of-type ul:nth-of-type(2) li div {
 	position: absolute;
-	top: 15em;
+	top: 17em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -621,28 +645,33 @@ main section:first-of-type ul:nth-of-type(2) li.slide-in-links div {
 
 main section:first-of-type ul:nth-of-type(2) li div h2 {
 	order: 1;
-	font-size: 2em;
 	text-align: center;
+	color: var(--color-text-white);
 }
 
 main section:first-of-type ul:nth-of-type(2) li div h3 {
 	order: 0;
-	font-size: 0.8em;
-	font-weight: 300;
-	letter-spacing: 0.1em;
+	color: var(--color-text-white);
 	text-align: center;
 	text-transform: uppercase;
 }
 
 main section:first-of-type ul:nth-of-type(2) li div a {
 	order: 2;
-	background: #ffffff;
+	background-color: #ffffff;
 	text-decoration: none;
 	color: #1a1919;
 	text-transform: uppercase;
-	padding: 1em 2em;
+	padding: 1.5em 3em;
 	margin: 1em 0;
-	font-size: 0.8em;
+	font-size: 0.7em;
+	letter-spacing: 0.1em;
+	transition: background-color 0.3s ease;
+}
+
+main section:first-of-type ul:nth-of-type(2) li div a:hover {
+	background-color: #d8d8d8;
+	transition: background-color 0.3s ease;
 }
 
 main section:first-of-type > div {
@@ -685,16 +714,16 @@ main section:first-of-type > div > nav > ul li {
 main section:first-of-type > div > nav > ul li button {
 	border: none;
 	background-color: #cccccc;
-	height: 0.25em;
-	width: 0.25em;
-	border-radius: 0.2em;
+	height: 0.25rem;
+	width: 0.25rem;
+	border-radius: 0.2rem;
 	cursor: pointer;
 }
 
 main section:first-of-type > div > nav > ul li.active button {
 	background-color: #ffffff;
-	height: 0.4em;
-	width: 0.4em;
+	height: 0.35rem;
+	width: 0.35rem;
 }
 
 main section:first-of-type div > button {
@@ -751,4 +780,209 @@ main section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(2) {
 	opacity: 1;
 	transform: rotate(0deg);
 	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+/* Tweede section */
+main section:nth-of-type(2) {
+	display: flex;
+	flex-direction: column;
+	margin: 0em 1.5em;
+}
+
+main section:nth-of-type(2) h2 {
+	order: 1;
+	margin-top: 0.5em;
+}
+
+main section:nth-of-type(2) h3 {
+	order: 0;
+	margin-top: 2.5em;
+}
+
+.articles-container {
+	display: flex;
+	overflow-x: auto;
+    overflow-y: hidden;
+	gap: 0.5em;
+	margin: 1em 0;
+	padding: 0 1.5em; 
+	width: calc(100% + 3em);
+	scrollbar-width: none;
+	order: 2;
+    transform: translateX(-1.5em);   
+}
+
+.articles-container > article {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 9.25rem 9.25rem auto auto 4rem auto 0.6rem 1.1rem;
+	justify-items: start;
+	width: 14em;
+	min-width: 14em;
+}
+
+.articles-container > article h4 {
+	grid-row: 3/4;
+	grid-column: 1/3;
+	font-size: 1rem;
+	font-weight: 500;
+	margin: 0.5em 0 0.25em;
+}
+
+.articles-container > article > img {
+	grid-row: 1/3;
+	grid-column: 1/3;
+	width: 100%;
+	height: auto;
+	background-color: #faf9f7;
+}
+
+.articles-container > article .product-badge {
+	grid-row: 2/3;
+	grid-column: 1/3;
+	align-self: end;
+	max-width: calc(100% - 2.5rem);
+	margin-bottom: 1em;
+	background-color: #ffffff;
+	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
+}
+/* :is() bron: https://www.sitepoint.com/css-is-where-has-pseudo-class-selectors/?utm_source=chatgpt.com */
+.articles-container > article :is(img + p.product-badge + p, img + p:not(.product-badge)) {
+	grid-row: 4/5;
+	grid-column: 1/3;
+	font-size: 0.75rem;
+	color: var(--color-secondary-text-lightgray);
+}
+
+.articles-container > article > ul {
+	display: flex;
+	grid-row: 5/6;
+	grid-column: 1/3;
+	margin-top: 0.3em;
+	margin-bottom: 1em;
+	list-style: none;
+}
+
+.articles-container > article > ul li {
+	display: flex;
+	width: 2.5rem;
+	height: 2.5rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.articles-container > article > ul li button {
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	width: 2.5rem;
+	height: 2.5rem;
+	z-index: 10;
+}
+
+.articles-container > article > ul li button img {
+	width: 2.5em;
+	height: 2.5em;
+	object-fit: cover;
+}
+
+.articles-container > article > p:has(+ button) {
+	grid-row: 6 / 7;
+	grid-column: 1 / 3;
+	font-size: 1rem;
+	line-height: 1.25em;
+	font-weight: 400;
+	font-family: var(--font-titles);
+	align-self: end;
+}
+
+.articles-container > article > p:has(+ p + button):not(:is(img + p.product-badge + p,img + p:not(.product-badge))) {
+	grid-row: 6 / 7;
+	grid-column: 1 / 3;
+	font-size: 1rem;
+	line-height: 1.25em;
+	font-weight: 400;
+	font-family: var(--font-titles);
+	align-self: center;
+	padding-bottom: 0.5em;
+	text-decoration: line-through;
+	opacity: .6;
+}
+
+.articles-container > article > button {
+	grid-row: 6/7;
+	grid-column: 2/3;
+	justify-self: end;
+	align-self: end;
+	height: 3.8em;
+	width: 3.8em;
+	border: 1px solid rgba(26, 25, 25, 0.16);
+	background-color: transparent;
+	border-radius: 2em;
+	cursor: pointer;
+	transition: border 0.3s ease;
+	z-index: 10;
+}
+
+.articles-container > article > button:hover {
+	border: 1px solid rgba(26, 25, 25, 0.9);
+	transition: border 0.3s ease;
+}
+
+.articles-container > article > button svg {
+	height: 1.75em;
+	stroke: #1a1919;
+	stroke-width: 2px;
+	stroke-miterlimit: 10;
+	stroke-linecap: round;
+	fill: none;
+}
+
+.articles-container > article > div {
+	grid-row: 7/8;
+	grid-column: 1/3;
+	margin: 0.5em 0 0.2em;
+	border-bottom: 1px solid rgba(26, 25, 25, 0.16);
+	width: 100%;
+}
+
+.articles-container > article > div + p {
+	grid-row: 8/9;
+	grid-column: 1/3;
+	font-size: 0.75rem;
+	color: var(--color-secondary-text-lightgray);
+}
+
+.articles-container > article > a {
+	grid-row: 1/9;
+	grid-column: 1/3;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+}
+
+/* Derde section */
+
+
+
+
+/* Zesde section */
+main section:nth-of-type(5) {
+	display: flex;
+	flex-direction: column;
+	margin: 0em 1.5em;
+}
+
+main section:nth-of-type(5) h2 {
+	order: 1;
+	margin-top: 0.5em;
+}
+
+main section:nth-of-type(5) h3 {
+	order: 0;
+	margin-top: 3em;
+}
+
+main section:nth-of-type(5) > div {
+	order: 2;
 }
