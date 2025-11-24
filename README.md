@@ -40,12 +40,16 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   Home pagina Rituals
+  
   <img src="readme-images/rituals-home-tel.jpeg" width="375px" alt="Rituals home pagina op telefoon">
+  
   <img src="readme-images/rituals-home-web.jpg" width="375px" alt="Rituals home pagina op desktop en laptop">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   Product overzicht pagina bij Rituals 
+  
   <img src="readme-images/rituals-detailpagina-tel.jpeg" width="375px" alt="Rituals product overzicht pagina op telefoon">
+  
   <img src="readme-images/rituals-detailpagina-web.jpg" width="375px" alt="Rituals product overzicht pagina op desktop en laptop">
  
 </details>
@@ -59,6 +63,21 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen:
+  Ik ging de Rituals websites testen op toegankelijkheid. Daarbij gingen we testen doormiddel van
+
+  Screenreader:
+  Vorig jaar kwam de screenreader niet verder dan de menubalk in de header. Nu is het ietsje beter voor de standaard webpagina, maar er is ook een toegankelijkheid knop toegevoegd.
+  Zonder toegankelijkheid optie ingeschakeld:
+  - Geen skip het menu, maar gaat ook niet door het hele menu.
+  - Opent de zoekoeptie en laat die dan vervolgens de hele tijd openstaan.
+  - Skipt ook veel info, zoals product prijzen.
+  - Is erg traag, leest enorm veel onnodige achtergrond informatie op, bij een simpele button naar links bleef de narrator maar door babbelen, alsof de backend werd opgelezen, of een foutmelding op een loop.
+  - Er was ook geen duidelijke focus state rond de elementen.
+  Met toegankelijkheid optie geselecteerd:
+  - Focus state was een stuk beter.
+  - Er waren skip menu, en andere skip opties in het begin.
+  - Layout van de website werd wel enorm anders.
+  - 
 
 </details>
 
