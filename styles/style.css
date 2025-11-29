@@ -298,7 +298,6 @@ header div > nav > div div input::placeholder {
 header div > nav > ul svg {
 	height: 0.6em;
 	min-width: 0;
-	transform: rotate(180deg);
 }
 
 header div > nav > div div a {
@@ -398,7 +397,7 @@ header div nav > ul > li section h2 > a > span:hover::before {
 }
 
 header div nav > ul > li section h2 > a > svg {
-	stroke-width: 10px;
+	stroke-width: 3px;
 	height: 0.5em;
 	opacity: 80%;
 }
@@ -502,16 +501,16 @@ header div > div nav section h4 {
 	margin: 0.5em 0 1.5em;
 }
 
-			/********************/
-			/* MAIN, homepagina */
-			/********************/
+			/*****************************/
+			/* MAIN, homepagina, (Index) */
+			/*****************************/
 /* Eerste section */
-main h1 {
+.index h1 {
 	visibility: hidden;
 	height: 0;
 }
 
-main > section:first-of-type {
+.index > section:first-of-type {
 	position: relative;
 	height: 32em;
 	min-height: 500px;
@@ -519,7 +518,7 @@ main > section:first-of-type {
 }
 
 /* Scroll-snap bron: https://www.30secondsofcode.org/css/s/scroll-snap/?utm_source=chatgpt.com */
-main section:first-of-type > ul:first-of-type {
+.index section:first-of-type > ul:first-of-type {
 	display: flex;
 	position: absolute;
 	left: 0;
@@ -535,13 +534,13 @@ main section:first-of-type > ul:first-of-type {
 	scroll-behavior: smooth;*/
 }
 
-main section:first-of-type > ul:first-of-type li {
+.index section:first-of-type > ul:first-of-type li {
 	flex-shrink: 0;
 	/*scroll-snap-align: start;
 	scroll-snap-stop: always;*/
 }
 
-main section:first-of-type ul:first-of-type li a {
+.index section:first-of-type ul:first-of-type li a {
 	display: inline-block;
 	font-size: 0.875em;
 	text-decoration: none;
@@ -551,7 +550,7 @@ main section:first-of-type ul:first-of-type li a {
 	color: var(--color-text-white);
 }
 
-main section:first-of-type ul:nth-of-type(2) {
+.index section:first-of-type ul:nth-of-type(2) {
 	display: flex;
 	position: relative;
 	flex-direction: column;
@@ -561,7 +560,7 @@ main section:first-of-type ul:nth-of-type(2) {
 	list-style: none;
 }
 
-main section:first-of-type ul:nth-of-type(2) li {
+.index section:first-of-type ul:nth-of-type(2) li {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
@@ -574,7 +573,7 @@ main section:first-of-type ul:nth-of-type(2) li {
     visibility: hidden;
 }
 
-main section:first-of-type ul:nth-of-type(2) li.active {
+.index section:first-of-type ul:nth-of-type(2) li.active {
 	visibility: visible;
 }
 
@@ -588,7 +587,7 @@ main section:first-of-type ul:nth-of-type(2) li.active {
 	to { opacity: 0; }
 }
 
-main section:first-of-type ul:nth-of-type(2) li video {
+.index section:first-of-type ul:nth-of-type(2) li video {
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -598,17 +597,17 @@ main section:first-of-type ul:nth-of-type(2) li video {
 }
 
 
-main section:first-of-type ul:nth-of-type(2) li.active.volgende video,
-main section:first-of-type ul:nth-of-type(2) li.active.vorige video {
+.index section:first-of-type ul:nth-of-type(2) li.active.volgende video,
+.index section:first-of-type ul:nth-of-type(2) li.active.vorige video {
 	animation: fadeOut 0.5s linear;
 }
 
-main section:first-of-type ul:nth-of-type(2) li.active video {
+.index section:first-of-type ul:nth-of-type(2) li.active video {
 	opacity: 1;
 	animation: fadeIn 0.5s linear;
 }
 
-main section:first-of-type ul:nth-of-type(2) li div {
+.index section:first-of-type ul:nth-of-type(2) li div {
 	position: absolute;
 	top: 17em;
 	display: flex;
@@ -622,44 +621,44 @@ main section:first-of-type ul:nth-of-type(2) li div {
 	transition: transform 0.3s linear, opacity 0.3s linear;
 }
 
-main section:first-of-type ul:nth-of-type(2) li.volgende div {
+.index section:first-of-type ul:nth-of-type(2) li.volgende div {
 	opacity: 0;
 	transform: translateX(200px);
 	transition: transform 0.2s linear, opacity 0.2s linear;
 }
 
-main section:first-of-type ul:nth-of-type(2) li.slide-in-rechts div {
+.index section:first-of-type ul:nth-of-type(2) li.slide-in-rechts div {
 	opacity: 1;
 	transform: translateX(0);
 	transition: transform 0.2s linear, opacity 0.2s linear;
 }
 
-main section:first-of-type ul:nth-of-type(2) li.vorige div {
+.index section:first-of-type ul:nth-of-type(2) li.vorige div {
 	opacity: 0;
 	transform: translateX(-200px);
 	transition: transform 0.2s linear, opacity 0.2s linear;
 }
 
-main section:first-of-type ul:nth-of-type(2) li.slide-in-links div {
+.index section:first-of-type ul:nth-of-type(2) li.slide-in-links div {
 	opacity: 1;
 	transform: translateX(0);
 	transition: transform 0.2s linear, opacity 0.2s linear;
 }
 
-main section:first-of-type ul:nth-of-type(2) li div h2 {
+.index section:first-of-type ul:nth-of-type(2) li div h2 {
 	order: 1;
 	text-align: center;
 	color: var(--color-text-white);
 }
 
-main section:first-of-type ul:nth-of-type(2) li div h3 {
+.index section:first-of-type ul:nth-of-type(2) li div h3 {
 	order: 0;
 	color: var(--color-text-white);
 	text-align: center;
 	text-transform: uppercase;
 }
 
-main section:first-of-type ul:nth-of-type(2) li div a {
+.index section:first-of-type ul:nth-of-type(2) li div a {
 	order: 2;
 	background-color: #ffffff;
 	text-decoration: none;
@@ -672,12 +671,12 @@ main section:first-of-type ul:nth-of-type(2) li div a {
 	transition: background-color 0.3s ease;
 }
 
-main section:first-of-type ul:nth-of-type(2) li div a:hover {
+.index section:first-of-type ul:nth-of-type(2) li div a:hover {
 	background-color: #d8d8d8;
 	transition: background-color 0.3s ease;
 }
 
-main section:first-of-type > div {
+.index section:first-of-type > div {
 	display: flex;
 	width: auto;
 	justify-content: space-between;
@@ -692,13 +691,13 @@ main section:first-of-type > div {
 	gap: 1em;
 }
 
-main section:first-of-type > div > nav {
+.index section:first-of-type > div > nav {
 	display: flex;
 	flex-grow: 1;
 	justify-content: start;
 }
 
-main section:first-of-type > div > nav > ul {
+.index section:first-of-type > div > nav > ul {
 	display: flex;
 	width: auto;
 	list-style: none;
@@ -709,12 +708,12 @@ main section:first-of-type > div > nav > ul {
 	border-radius: 1em;
 }
 
-main section:first-of-type > div > nav > ul li {
+.index section:first-of-type > div > nav > ul li {
 	display: flex;
 	align-items: center;
 }
 
-main section:first-of-type > div > nav > ul li button {
+.index section:first-of-type > div > nav > ul li button {
 	border: none;
 	background-color: #cccccc;
 	height: 0.25rem;
@@ -723,13 +722,13 @@ main section:first-of-type > div > nav > ul li button {
 	cursor: pointer;
 }
 
-main section:first-of-type > div > nav > ul li.active button {
+.index section:first-of-type > div > nav > ul li.active button {
 	background-color: #ffffff;
 	height: 0.35rem;
 	width: 0.35rem;
 }
 
-main section:first-of-type div > button {
+.index section:first-of-type div > button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -745,12 +744,12 @@ main section:first-of-type div > button {
 	transition: background-color 0.3s ease, border 0.3s ease;
 }
 
-main section:first-of-type div > button:hover {
+.index section:first-of-type div > button:hover {
 	background-color: rgba(26, 25, 25, 1);
     border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-main section:first-of-type div > button svg {
+.index section:first-of-type div > button svg {
 	position: absolute;
 	height: 0.75em;
 	width: 0.75em;
@@ -761,42 +760,42 @@ main section:first-of-type div > button svg {
     stroke-width: 4px;
 }
 
-main section:first-of-type div button:first-of-type svg:nth-of-type(1) {
+.index section:first-of-type div button:first-of-type svg:nth-of-type(1) {
 	opacity: 1;
 	transform: rotate(0deg);
 	transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-main section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(1) {
+.index section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(1) {
 	opacity: 0;
 	transform: rotate(180deg);
 	transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-main section:first-of-type div button:first-of-type svg:nth-of-type(2) {
+.index section:first-of-type div button:first-of-type svg:nth-of-type(2) {
 	opacity: 0;
 	transform: rotate(-180deg);
 	transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-main section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(2) {
+.index section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(2) {
 	opacity: 1;
 	transform: rotate(0deg);
 	transition: transform 0.3s ease, opacity 0.3s ease;
 }
 /* Tweede section */
-main section:nth-of-type(2) {
+.index section:nth-of-type(2) {
 	display: flex;
 	flex-direction: column;
 	margin: 1em 1.5em;
 }
 
-main section:nth-of-type(2) h2 {
+.index section:nth-of-type(2) h2 {
 	order: 1;
 	margin-top: 0.5em;
 }
 
-main section:nth-of-type(2) h3 {
+.index section:nth-of-type(2) h3 {
 	order: 0;
 	margin-top: 2.5em;
 }
@@ -968,36 +967,36 @@ main section:nth-of-type(2) h3 {
 	height: 100%;
 }
 
-/* Voor de article's direct in de main genest */
-main > article {
+/* Voor de article's direct in de .index genest */
+.index > article {
 	display: flex;
 	flex-direction: column;
 	margin: 2.5em 1.5em;
 }
 
-main > article h2 {
+.index > article h2 {
 	order: 2;
 	margin-top: 0.5rem;
 }
 
-main > article h3 {
+.index > article h3 {
 	order: 1;
 	margin-top: 1.5rem;
 }
 
-main > article img {
+.index > article img {
 	width: 100%;
 	order: 0;
 }
 
-main > article p {
+.index > article p {
 	order: 3;
 	margin-top: 1em;
 	line-height: 1.5em;
 	color: var(--color-secondary-text-gray);
 }
 
-main > article a {
+.index > article a {
 	order: 4;
 	margin-top: 1.5em;
 	padding: 1rem 2rem;
@@ -1012,7 +1011,7 @@ main > article a {
 	transition: color 0.2s ease, border 0.2s ease, background-color 0.2s ease;
 }
 
-main > article a:hover {
+.index > article a:hover {
 	color: var(--color-text-white);
 	border: 1px solid #1a1919;
 	background-color: #1a1919;
@@ -1020,23 +1019,23 @@ main > article a:hover {
 }
 
 /* Section Ontdek Rituals*/
-main section:nth-of-type(3) {
+.index section:nth-of-type(3) {
 	margin: 5em 0;
 }
 
-main section:nth-of-type(3) nav {
+.index section:nth-of-type(3) nav {
 	position: relative;
 	height: 4.5rem;
 }
 
-main section:nth-of-type(3) nav ul {
+.index section:nth-of-type(3) nav ul {
 	display: flex;
 	padding: 1rem 0;
 	gap: 1.5rem;
 	list-style: none;
 }
 
-main section:nth-of-type(3) nav ul li button {
+.index section:nth-of-type(3) nav ul li button {
 	border: none;
 	background: none;
 	font-family: var(--font-titles);
@@ -1045,7 +1044,7 @@ main section:nth-of-type(3) nav ul li button {
 	cursor: pointer;
 }
 
-main section:nth-of-type(3) nav > button {
+.index section:nth-of-type(3) nav > button {
 	position: absolute;
 	z-index: 10;
 	border: none;
@@ -1055,7 +1054,7 @@ main section:nth-of-type(3) nav > button {
 	transform: translateY(-50%);
 }
 
-main section:nth-of-type(3) nav > button svg {
+.index section:nth-of-type(3) nav > button svg {
 	fill: none;
 	stroke: #000000;
 	stroke-linecap: round;
@@ -1064,26 +1063,26 @@ main section:nth-of-type(3) nav > button svg {
 	height: 1.25rem;
 }
 
-main section:nth-of-type(3) nav > button:first-of-type{
+.index section:nth-of-type(3) nav > button:first-of-type{
 	left: 1.5em;
 }
 
-main section:nth-of-type(3) nav > button:last-of-type{
+.index section:nth-of-type(3) nav > button:last-of-type{
 	right: 1.5em;
 }
 
-main section:nth-of-type(3) h3 {
+.index section:nth-of-type(3) h3 {
 	margin: 0 1.5em;
 	text-align: center;
 }
 
-main section:nth-of-type(3) > ul {
+.index section:nth-of-type(3) > ul {
 	display: flex;
 	overflow-x: auto;
 	scrollbar-width: none;
 }
 
-main section:nth-of-type(3) > ul li {
+.index section:nth-of-type(3) > ul li {
 	display: flex;
 	flex-direction: column;
 	flex: 0 0 auto;
@@ -1092,39 +1091,39 @@ main section:nth-of-type(3) > ul li {
 	gap: 0.1rem;
 }
 
-main section:nth-of-type(3) > ul li a {
+.index section:nth-of-type(3) > ul li a {
 	position: relative;
 	width: 100%;
 	height: 20em;
 }
 
-main section:nth-of-type(3) > ul li a > img {
+.index section:nth-of-type(3) > ul li a > img {
 	width: 100%;
 	height: 20em;
 	object-fit: cover;
 }
 
-main section:nth-of-type(3) > ul li a section {
+.index section:nth-of-type(3) > ul li a section {
 	position: absolute;
 	bottom: 1.5em;
 	left: 1.5em;
 	color: var(--color-text-white);
 }
 
-main section:nth-of-type(3) > ul li a section h4 {
+.index section:nth-of-type(3) > ul li a section h4 {
 	font-size: 1.2rem;
 	font-weight: 500;
 	margin-bottom: 0.7rem;
 }
 
-main section:nth-of-type(3) > ul li a section p {
+.index section:nth-of-type(3) > ul li a section p {
 	display: flex;
 	font-size: 0.7rem;
 	font-weight: 600;
 	letter-spacing: 0.1rem;
 }
 
-main section:nth-of-type(3) > ul li a section p svg {
+.index section:nth-of-type(3) > ul li a section p svg {
 	height: 0.7rem;
 	margin-left: 0.5rem;
 	fill: none;
@@ -1137,28 +1136,28 @@ main section:nth-of-type(3) > ul li a section p svg {
 
 
 /* Section Bekroonde Producten*/
-main section:nth-of-type(4) {
+.index section:nth-of-type(4) {
 	display: flex;
 	flex-direction: column;
 	padding: 0 1.5rem;
 }
 
-main section:nth-of-type(4) > h2 {
+.index section:nth-of-type(4) > h2 {
 	margin: 0.5rem 0;
 }
 
-main section:nth-of-type(4) > h2,
-main section:nth-of-type(4) > h3 {
+.index section:nth-of-type(4) > h2,
+.index section:nth-of-type(4) > h3 {
 	text-align: center;
 }
 
-main section:nth-of-type(4) > div {
+.index section:nth-of-type(4) > div {
 	order: 2;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-main section:nth-of-type(4) > div article {
+.index section:nth-of-type(4) > div article {
 	display: flex;
 	gap: 1rem;
 	flex-direction: column;
@@ -1166,57 +1165,57 @@ main section:nth-of-type(4) > div article {
 	margin: 1.5rem;
 }
 
-main section:nth-of-type(4) > div article h4 {
+.index section:nth-of-type(4) > div article h4 {
 	order: 1;
 	text-align: center;
 	font-size: 0.8rem;
 	font-weight: 400;
 }
 
-main section:nth-of-type(4) > div article img {
+.index section:nth-of-type(4) > div article img {
 	order: 0;
 	height: 5rem;
 	width: 5rem;
 }
 
 /* Section Favorieten van onze fans */
-main section:nth-of-type(5) {
+.index section:nth-of-type(5) {
 	display: flex;
 	flex-direction: column;
 	margin: 0em 1.5em;
 }
 
-main section:nth-of-type(5) h2 {
+.index section:nth-of-type(5) h2 {
 	order: 1;
 	margin-top: 0.5em;
 }
 
-main section:nth-of-type(5) h3 {
+.index section:nth-of-type(5) h3 {
 	order: 0;
 	margin-top: 3em;
 }
 
-main section:nth-of-type(5) > div {
+.index section:nth-of-type(5) > div {
 	order: 2;
 }
 
 /* Section over Rituals */
-main section:nth-of-type(6) {
+.index section:nth-of-type(6) {
 	display: flex;
 	flex-direction: column;
 	padding: 3rem 1.5rem;
 	align-items: center;
 }
 
-main section:nth-of-type(6) > h2 {
+.index section:nth-of-type(6) > h2 {
 	order: 1;
 }
 
-main section:nth-of-type(6) > h3 {
+.index section:nth-of-type(6) > h3 {
 	order: 0;
 }
 
-main section:nth-of-type(6) ul {
+.index section:nth-of-type(6) ul {
 	display: flex;
 	flex-direction: row;
 	gap: 0.6rem;
@@ -1225,45 +1224,45 @@ main section:nth-of-type(6) ul {
 	list-style: none;
 }
 
-main section:nth-of-type(6) ul li {
+.index section:nth-of-type(6) ul li {
 	width: calc(100vw - 3rem);
 }
 
-main section:nth-of-type(6) ul li article {
+.index section:nth-of-type(6) ul li article {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 } 
 
-main section:nth-of-type(6) ul li article h2 {
+.index section:nth-of-type(6) ul li article h2 {
 	order: 3;
 	font-size: 1.3rem;
 }
 
-main section:nth-of-type(6) ul li article h3 {
+.index section:nth-of-type(6) ul li article h3 {
 	order: 1;
 }
 
-main section:nth-of-type(6) ul li article svg {
+.index section:nth-of-type(6) ul li article svg {
 	order: 2;
 	width: 1.5rem;
 	padding: 1rem 0;
 }
 
-main section:nth-of-type(6) ul li article svg line {
+.index section:nth-of-type(6) ul li article svg line {
 	stroke: var(--color-small-titles-darkbeige);
 	stroke-linecap: round;
 	stroke-miterlimit: 10;
 	stroke-width: 4px;
 }
 
-main section:nth-of-type(6) ul li article img {
+.index section:nth-of-type(6) ul li article img {
 	order: 0;
 	width: 100%;
 	padding: 1.5rem 0;
 }
 
-main section:nth-of-type(6) ul li article p {
+.index section:nth-of-type(6) ul li article p {
 	order: 4;
 	color: var(--color-secondary-text-lightgray);
 	padding: 1rem;
@@ -1272,7 +1271,7 @@ main section:nth-of-type(6) ul li article p {
 	font-size: 0.9rem;
 }
 
-main section:nth-of-type(6) ul li article a {
+.index section:nth-of-type(6) ul li article a {
 	order: 5;
 	padding: 1rem 2rem;
 	text-decoration: none;
@@ -1285,13 +1284,13 @@ main section:nth-of-type(6) ul li article a {
 	font-weight: 600;
 }
 
-main section:nth-of-type(6) ul li article a:hover {
+.index section:nth-of-type(6) ul li article a:hover {
 	background-color: #1a1919;
 	color: var(--color-text-white);
 }
 
-/* Laatste element van de main (p) */
-main > p {
+/* Laatste element van de .index (p) */
+.index > p {
 	padding: 1rem 1.5rem;
 	font-size: 0.8rem;
 	font-style: italic;
@@ -1299,11 +1298,11 @@ main > p {
 	background: var(--color-secondary-light-background);
 }
 
-main > p a {
+.index > p a {
 	color: var(--color-small-titles-darkbeige);
 }
 
-main > p a:hover {
+.index > p a:hover {
 	text-decoration: none;
 }
 
