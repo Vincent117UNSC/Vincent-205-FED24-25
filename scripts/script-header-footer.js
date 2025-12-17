@@ -19,11 +19,15 @@ const deZoekNav = document.querySelector("header div > div nav")
 const zoekenButton = document.querySelector("header div > div button")
 const terugZoekenButton = document.querySelector("header div > div nav div button")
 
-const ulTop = document.querySelector("header > ul")
+const ulTop = document.querySelector("header div:first-of-type > ul:first-of-type")
 const listItems = ulTop.querySelectorAll("li")
 
 let currentIndex = 0
 let lastScrollTop = 0
+
+function isDesktop() {
+    return window.innerWidth >= 1024;
+}
 
 function updateActiveItem() {
     listItems[currentIndex].classList.remove("active")
@@ -32,10 +36,9 @@ function updateActiveItem() {
 }
 setInterval(updateActiveItem, 3500)
 
-function openHambergerMenu() {
+function openHamburgerMenu() {
     body.classList.add("menuOpenBodyHidden")
     deNav.classList.add("menuOpen")
-    deNav.style.left = "0"
 }
 
 function sluitHamburgerMenu() {
@@ -43,27 +46,22 @@ function sluitHamburgerMenu() {
 
     deNav.classList.remove("menuOpen")
     deNav.classList.remove("openButHidden")
-    deNav.style.left = "-100%"
     deNav.scrollTop = 0
 
     sectionsLaag2.forEach(section => section.classList.remove("laagTweeOpen", "openButHidden"))
-    sectionsLaag2.forEach(section => section.style.left = "-100%")
     sectionsLaag2.forEach(section => section.scrollTop = 0)
 
     sectionsLaag3.forEach(section => section.classList.remove("laagDrieOpen", "openButHidden"))
-    sectionsLaag3.forEach(section => section.style.left = "-100%")
     sectionsLaag3.forEach(section => section.scrollTop = 0)
 }
 
 function openZoeken() {
     deZoekNav.classList.add("zoekOpen")
-    deZoekNav.style.left = "0"
     body.classList.add("menuOpenBodyHidden")
 }
 
 function terugVanZoeken() {
     deZoekNav.classList.remove("zoekOpen")
-    deZoekNav.style.left = "-100%"
     body.classList.remove("menuOpenBodyHidden")
 }
 
@@ -74,8 +72,21 @@ function findParentIndex(child, parentArray) {
 
 openButtonsLaag2.forEach((button, index) => {
     button.addEventListener("click", () => {
-        sectionsLaag2[index].style.left = "0"
-        deNav.classList.add("openButHidden")
+        sectionsLaag2.forEach((section, i) => {
+            if (i !== index) {
+                section.classList.remove("laagTweeOpen")
+            }
+        })
+
+        sectionsLaag3.forEach((section) => {
+            section.classList.remove("laagDrieOpen")
+        })
+
+        if (!isDesktop()) {
+            deNav.classList.add("openButHidden")
+        } else {
+            body.classList.add("menuOpenBodyHidden")
+        }
         sectionsLaag2[index].classList.add("laagTweeOpen")
     })
 })
@@ -83,15 +94,30 @@ openButtonsLaag2.forEach((button, index) => {
 sluitButtonsLaag2.forEach((button, index) => {
     button.addEventListener("click", () => {
         deNav.classList.remove("openButHidden")
-        sectionsLaag2[index].style.left = "-100%"
         sectionsLaag2[index].classList.remove("laagTweeOpen")
         sectionsLaag2[index].scrollTop = 0
+
+        sectionsLaag3.forEach((section) => {
+            if (sectionsLaag2[index].contains(section)) {
+                section.classList.remove("laagDrieOpen")
+            }
+        })
+
+        if (isDesktop()) {
+            body.classList.remove("menuOpenBodyHidden")
+        }
     })
 })
 
 openButtonsLaag3.forEach((button, index) => {
     button.addEventListener("click", () => {
-        sectionsLaag3[index].style.left = "0"
+        const parentIndex = findParentIndex(sectionsLaag3[index], sectionsLaag2)
+        sectionsLaag3.forEach((section, i) => {
+            if (findParentIndex(section, sectionsLaag2) === parentIndex && i !== index) {
+                section.classList.remove("laagDrieOpen")
+            }
+        })
+
         sectionsLaag3[index].classList.add("laagDrieOpen")
 
         const parentSection = sectionsLaag2[findParentIndex(sectionsLaag3[index], sectionsLaag2)]
@@ -103,7 +129,6 @@ openButtonsLaag3.forEach((button, index) => {
 
 sluitButtonsLaag3.forEach((button, index) => {
     button.addEventListener("click", () => {
-        sectionsLaag3[index].style.left = "-100%"
         sectionsLaag3[index].classList.remove("laagDrieOpen")
         sectionsLaag3[index].scrollTop = 0
 
@@ -126,7 +151,7 @@ window.addEventListener("scroll", function(){
     lastScrollTop = st <= 0 ? 0 : st
 }, false)
 
-hamburgerMenuButton.addEventListener("click", openHambergerMenu)
+hamburgerMenuButton.addEventListener("click", openHamburgerMenu)
 sluitMenuButton.addEventListener("click", sluitHamburgerMenu)
 zoekenButton.addEventListener("click", openZoeken)
 terugZoekenButton.addEventListener("click", terugVanZoeken)
