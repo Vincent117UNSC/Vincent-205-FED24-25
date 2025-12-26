@@ -628,11 +628,31 @@ header div nav > ul > li > section > ul > li > section > ul > li img {
 
 	header > div:last-of-type > nav > ul > li > section,
 	header > div:last-of-type > nav > ul > li > section > ul > li > section {
+		display: flex;
+		flex-direction: column;
 		top: 7em;
 	}
 
-	header > div:last-of-type > nav > div {
+	header > div:last-of-type > nav > ul > li > section button,
+	header > div:last-of-type > nav > ul > li > section > ul > li > section button {
+		align-self: flex-end;
+	}
+
+	header > div:last-of-type > nav > ul > li > section h2,
+	header > div:last-of-type > nav > ul > li > section > ul > li > section h2 {
+		order: inherit;
+	}
+
+	header > div:last-of-type > nav > div,
+	header > div:last-of-type > nav ul li > a > svg,
+	header > div:last-of-type > nav ul li > button > svg {
 		display: none;
+	}
+
+	header div nav > ul > li:first-of-type > section a p,
+	header > div:last-of-type > nav ul li > a > p,
+	header > div:last-of-type > nav ul li > button > p {
+		font-size: 1rem;
 	}
 
 	header > div:last-of-type > nav > ul:first-of-type {
@@ -672,16 +692,15 @@ header div nav > ul > li > section > ul > li > section > ul > li img {
 		color: var(--color-text-white);
 	}
 
+	header > div:last-of-type > nav > ul:last-of-type,
 	header > div:last-of-type > nav > ul:first-of-type > li > button svg {
 		display: none;
 	}
-
-	header > div:last-of-type > nav > ul:last-of-type {
-		display: none;
-	}
-
+	
 	header > div:last-of-type > nav > ul > li > section {
 		width: 24em;
+		height: calc(100vh - 7em);
+		padding-top: 0;
 	}
 
 	header > div:last-of-type > nav > ul > li > section.laagTweeOpen::before {
@@ -697,6 +716,8 @@ header div nav > ul > li > section > ul > li > section > ul > li img {
 
 	header > div:last-of-type > nav > ul > li > section > ul > li > section {
 		width: 28em;
+		padding-top: 0;
+		height: calc(100vh - 7em);
 		background: var(--color-gray);
 	}
 

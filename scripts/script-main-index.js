@@ -20,6 +20,7 @@ let activeSlide = 0
 let isTransitioning = false
 let isPlaying = false
 
+updateVideoPosters()
 carouselItems[0].classList.add("active")
 carouselItems[0].classList.add("slide-in-rechts")
 carouselItems[1].classList.add("volgende")
@@ -53,6 +54,27 @@ function mouseMove(e){
         isDragging = true
     }
     currentScrollTarget.scrollLeft = scrollLeft - walkX
+}
+
+function updateVideoPosters() {
+    const videos = document.querySelectorAll(".index section:first-of-type ul:nth-of-type(2) li video")
+    const screenWidth = window.innerWidth
+    
+    videos.forEach(video => {
+        let newPoster
+        
+        if (screenWidth >= 1024) {
+            newPoster = video.dataset.posterWide
+        } else if (screenWidth >= 768) {
+            newPoster = video.dataset.posterMedium
+        } else {
+            newPoster = video.dataset.posterSmall
+        }
+
+        if (video.poster !== newPoster) {
+            video.poster = newPoster
+        }
+    })
 }
 
 function updateCarousel(direction) {
@@ -158,5 +180,6 @@ afspeelPauzeerButton.addEventListener("click", () => {
     }
 })
 
+window.addEventListener('resize', updateVideoPosters)
 volgendeButton.addEventListener("click", nextSlide)
 vorigeButton.addEventListener("click", prevSlide)

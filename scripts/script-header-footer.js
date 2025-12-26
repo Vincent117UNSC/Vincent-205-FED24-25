@@ -19,6 +19,17 @@ const deZoekNav = document.querySelector("header div > div nav")
 const zoekenButton = document.querySelector("header div > div button")
 const terugZoekenButton = document.querySelector("header div > div nav div button")
 
+
+const pijlSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 54">
+    <title>Pijl naar links voor terugknop</title>
+    <path d="M26.675 52.04C26.675 52.04 3.815 29.19 1.575 26.94C1.475 26.84 1.475 26.68 1.575 26.58L26.675 1.5M1.875 26.77H59.475"/>
+</svg>`
+const kruisSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.98 58.98">
+    <title>Kruisicoon voor sluiten</title>
+    <line class="cls-1" x1="1.5" y1="57.48" x2="57.48" y2="1.5"/>
+    <line class="cls-1" x1="57.48" y1="57.48" x2="1.5" y2="1.5"/>
+</svg>`
+
 const ulTop = document.querySelector("header div:first-of-type > ul:first-of-type")
 const listItems = ulTop.querySelectorAll("li")
 
@@ -63,6 +74,18 @@ function openZoeken() {
 function terugVanZoeken() {
     deZoekNav.classList.remove("zoekOpen")
     body.classList.remove("menuOpenBodyHidden")
+}
+
+function updateSluitButtonIcons() {
+    const usedSVG = isDesktop() ? kruisSVG : pijlSVG
+
+    sluitButtonsLaag2.forEach(button => {
+        button.innerHTML = usedSVG
+    })
+    
+    sluitButtonsLaag3.forEach(button => {
+        button.innerHTML = usedSVG
+    })
 }
 
 //findParent met wat hulp van chatGPT, erg lang gestruggled om het werkend te krijgen
@@ -155,3 +178,6 @@ hamburgerMenuButton.addEventListener("click", openHamburgerMenu)
 sluitMenuButton.addEventListener("click", sluitHamburgerMenu)
 zoekenButton.addEventListener("click", openZoeken)
 terugZoekenButton.addEventListener("click", terugVanZoeken)
+
+updateSluitButtonIcons()
+window.addEventListener("resize", updateSluitButtonIcons)
