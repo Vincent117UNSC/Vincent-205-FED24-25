@@ -19,6 +19,8 @@ const deZoekNav = document.querySelector("header div > div nav")
 const zoekenButton = document.querySelector("header div > div button")
 const terugZoekenButton = document.querySelector("header div > div nav div button")
 
+const footerKlantHulpButtons = document.querySelectorAll("footer > ul > li > button")
+const footerKlantHulpItems = document.querySelectorAll("footer > ul > li")
 
 const pijlSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 54">
     <title>Pijl naar links voor terugknop</title>
@@ -36,8 +38,12 @@ const listItems = ulTop.querySelectorAll("li")
 let currentIndex = 0
 let lastScrollTop = 0
 
-function isDesktop() {
-    return window.innerWidth >= 1024;
+function isDesktopMedium() {
+    return window.innerWidth >= 768
+}
+
+function isDesktopWide() {
+    return window.innerWidth >= 1024
 }
 
 function updateActiveItem() {
@@ -50,6 +56,7 @@ setInterval(updateActiveItem, 3500)
 function openHamburgerMenu() {
     body.classList.add("menuOpenBodyHidden")
     deNav.classList.add("menuOpen")
+    deZoekNav.classList.remove("zoekOpen")
 }
 
 function sluitHamburgerMenu() {
@@ -67,8 +74,21 @@ function sluitHamburgerMenu() {
 }
 
 function openZoeken() {
+    deNav.classList.remove("openButHidden")
+
+    sectionsLaag2.forEach((section) => {
+        section.classList.remove("laagTweeOpen", "openButHidden")
+        section.scrollTop = 0
+    })
+
+    sectionsLaag3.forEach((section) => {
+        section.classList.remove("laagDrieOpen", "openButHidden")
+        section.scrollTop = 0
+    })
+
     deZoekNav.classList.add("zoekOpen")
     body.classList.add("menuOpenBodyHidden")
+
 }
 
 function terugVanZoeken() {
@@ -77,15 +97,20 @@ function terugVanZoeken() {
 }
 
 function updateSluitButtonIcons() {
-    const usedSVG = isDesktop() ? kruisSVG : pijlSVG
+    const wideSreenSVG = isDesktopWide() ? kruisSVG : pijlSVG
+    const mediumScreenSVG = isDesktopMedium() ? kruisSVG : pijlSVG
 
     sluitButtonsLaag2.forEach(button => {
-        button.innerHTML = usedSVG
+        button.innerHTML = wideSreenSVG
     })
     
     sluitButtonsLaag3.forEach(button => {
-        button.innerHTML = usedSVG
+        button.innerHTML = wideSreenSVG
     })
+
+    if (terugZoekenButton) {
+        terugZoekenButton.innerHTML = mediumScreenSVG
+    }
 }
 
 //findParent met wat hulp van chatGPT, erg lang gestruggled om het werkend te krijgen
@@ -105,12 +130,13 @@ openButtonsLaag2.forEach((button, index) => {
             section.classList.remove("laagDrieOpen")
         })
 
-        if (!isDesktop()) {
+        if (!isDesktopWide()) {
             deNav.classList.add("openButHidden")
         } else {
             body.classList.add("menuOpenBodyHidden")
         }
         sectionsLaag2[index].classList.add("laagTweeOpen")
+        deZoekNav.classList.remove("zoekOpen")
     })
 })
 
@@ -126,7 +152,7 @@ sluitButtonsLaag2.forEach((button, index) => {
             }
         })
 
-        if (isDesktop()) {
+        if (isDesktopWide()) {
             body.classList.remove("menuOpenBodyHidden")
         }
     })
@@ -173,6 +199,18 @@ window.addEventListener("scroll", function(){
     }
     lastScrollTop = st <= 0 ? 0 : st
 }, false)
+
+footerKlantHulpButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+        footerKlantHulpItems.forEach((item, i) => {
+            if (i === index) {
+                item.classList.toggle("is-open")
+            } else {
+                item.classList.remove("is-open")
+            }
+        })
+    })
+})
 
 hamburgerMenuButton.addEventListener("click", openHamburgerMenu)
 sluitMenuButton.addEventListener("click", sluitHamburgerMenu)
