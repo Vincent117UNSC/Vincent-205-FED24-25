@@ -1,11 +1,11 @@
 // JavaScript Document
 console.log("hi")
-
+/*
 const horizontalScrollElements = document.querySelectorAll(`
     .index section:first-of-type ul:first-of-type, 
     .articles-container,
     .index section:nth-of-type(6) ul
-`)
+`)*/
 
 const carouselItems = document.querySelectorAll(".index section:first-of-type ul:nth-of-type(2) li")
 const carouselNavButtons = document.querySelectorAll(".index section:first-of-type > div > nav > ul > li > button")
@@ -77,14 +77,14 @@ const render = () => {
     requestAnimationFrame(render)
     renderCarousel2Nav()
 }
-
+/*
 let startX
 let scrollLeft
 let isDown
 let hasMoved = false
 let isDragging = false
 let currentScrollTarget = null
-
+*/
 let activeSlide = 0
 let activeSlide2 = 0
 let carousel2ScrollY = 0
@@ -121,7 +121,7 @@ carousel2Items[carousel2Items.length - 1].classList.add("vorige")
 function isDesktopWide() {
     return window.innerWidth >= 1024
 }
-
+/*
 // Horizontaal scrollen met muis on draggen bron: https://codepen.io/Gutto/pen/GBLPyN
 function mouseIsDown(e){
     currentScrollTarget = e.currentTarget
@@ -162,7 +162,7 @@ function mouseMove(e){
         currentScrollTarget.classList.add('scrolling')
     }
     currentScrollTarget.scrollLeft = scrollLeft - walkX
-}
+}*/
 
 function updateVideoPosters() {
     const videos = document.querySelectorAll(".index section:first-of-type ul:nth-of-type(2) li video")
@@ -339,7 +339,7 @@ function updateCarousel2NavActive() {
         }
     })
 }
-
+//Bron: https://stackoverflow.com/questions/1279957/how-to-move-an-element-into-another-element
 function moveProductCardIntro() {
     const sections = document.querySelectorAll(".index section:nth-of-type(2), .index section:nth-of-type(5)")
     const instances = []
@@ -366,7 +366,7 @@ function moveProductCardIntro() {
     sync()
     instances.push(sync)
     })
-    let resizeTimeout
+    let resizeTimeout //copilot deed beetje voor, dus ik heb het aangepast, werkte niet in de algemene resize
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout)
         resizeTimeout = setTimeout(() => {
@@ -374,7 +374,7 @@ function moveProductCardIntro() {
         }, 100)
     })
 }
-
+/*
 horizontalScrollElements.forEach(el => {
     el.addEventListener('mousedown', mouseIsDown)
     el.addEventListener('mouseup', mouseUp)
@@ -387,7 +387,7 @@ horizontalScrollElements.forEach(el => {
         }
     }, true)
     el.addEventListener('dragstart', (e) => e.preventDefault())
-})
+})*/
 
 carouselNavButtons.forEach((button, index) => {
     button.addEventListener("click", () => {

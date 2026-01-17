@@ -148,6 +148,24 @@ header.nav-up {
 	transition: top 0.3s linear;
 }
 
+header > a {
+	position: absolute;
+	top: 0;
+	left: -9999px;
+	margin: 0.5rem;
+	padding: 0.5rem 1rem;
+	background: var(--color-dark-gray);
+	color: var(--color-text-white);
+	text-decoration: none;
+	z-index: 2000;
+}
+
+header > a:focus {
+	outline: 2px solid var(--color-text-white);
+	outline-offset: 2px;
+	left: 0.5rem;
+}
+
 header > div:first-of-type {
 	background: var(--color-gray);
 }
@@ -1124,6 +1142,7 @@ header div > div nav section h4 {
 
 @media (min-width: 1024px) {
 	.index section:first-of-type > ul:first-of-type {
+		display: none;
 		top: -4em
 	}
 }
@@ -1476,6 +1495,7 @@ header div > div nav section h4 {
 	border: none;
 	background: none;
 	font-family: var(--font-prices-buttons);
+	color: var(--color-text-black);
 	font-size: 1.75rem;
 	cursor: pointer;
 	opacity: 0.3;
@@ -1869,7 +1889,6 @@ header div > div nav section h4 {
 	/* Eerste sectie */
 .advent section:first-of-type {
 	position: relative;
-	height: 50em;
 	background: none;
 }
 
@@ -1882,13 +1901,15 @@ header div > div nav section h4 {
 
 .advent section:first-of-type div:first-of-type h1 {
 	order: 1;
+	text-align: center;
 	color: var(--color-text-white);
+	margin: 0 1rem;
 }
 
 .advent section:first-of-type div:first-of-type h2 {
 	order: 0;
-	margin-right: 1rem;
 	font-size: 2rem;
+	line-height: normal;
 }
 
 .advent section:first-of-type > h3 {
@@ -1898,45 +1919,65 @@ header div > div nav section h4 {
 
 .advent section:first-of-type > p {
 	text-align: center;
-	margin: 1rem 3rem 5rem;
+	margin: 1rem 3rem 1rem;
 	font-family: var(--font-prices-buttons);
 }
 
 .advent section:first-of-type div:last-of-type {
 	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.5rem;
+	padding: 5rem 1.5rem 0;
 	overflow-x: auto;
-	overflow-y: visible;
+	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
-	gap: 0.5rem;
-	padding: 0 1.5rem;
+	scroll-padding: 0 1.5rem;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.advent section:first-of-type div:last-of-type::-webkit-scrollbar {
+	display: none;
+}
+
+.advent section:first-of-type div:last-of-type.scrolling {
+ 	scroll-snap-type: none;
 }
 
 .advent section:first-of-type div:last-of-type article {
 	display: flex;
 	flex-direction: column;
+	flex: 0 0 calc(100vw - 3rem);
 	align-items: center;
-	position: relative;
-	min-width: calc(100vw - 3rem);
+	scroll-snap-align: start;
 	border: 1px solid rgba(255, 255, 255, 0.6);
 	background: rgba(255, 255, 255, 0.150);
+	transform: translateY(0);
+	transition: transform 0.3s ease;
+}
+
+.advent section:first-of-type div:last-of-type article:hover {
+	transform: translateY(-1rem);
+	transition: transform 0.3s ease;
 }
 
 .advent section:first-of-type div:last-of-type article h2 {
+	text-align: center;
 	padding: 0.5rem 0;
 	order: 1;
 }
 
 .advent section:first-of-type div:last-of-type article h3 {
 	color: #A88C77;
-	padding-top: 13rem;
+	
 	order: 0;
 }
 
 .advent section:first-of-type div:last-of-type article img {
-	width: 100%;
-	position: absolute;
-	top: -4.7rem;
+	width: clamp(15em, 100%, 25em);
+	margin-top: -5rem;
+	order: -1;
 	object-fit: cover;
 	padding: 0 1.5rem;
 }
@@ -1961,6 +2002,7 @@ header div > div nav section h4 {
 }
 
 .advent section:first-of-type div:last-of-type article button {
+	display: inline-block;
 	padding: 1rem 3rem;
 	border: none;
 	background: var(--color-light-background-white);
@@ -2015,16 +2057,24 @@ header div > div nav section h4 {
 	z-index: -1;
 }
 
+@media (min-width: 768px) {
+	.advent section:first-of-type div:last-of-type {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
 /* Tweede sectie, eerste article */
 .advent > article:first-of-type {
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
 	padding: 1.5rem 1.5rem 3rem;
 	background-color: var(--color-background-christmas-darkred);
 }
 
 .advent > article:first-of-type > div:first-of-type {
 	display: flex;
+	flex: 0 0 100%;
 	flex-direction: column;
 	align-items: center;
 	padding: 1rem 0;
@@ -2034,20 +2084,34 @@ header div > div nav section h4 {
 	padding: 0.5rem 0;
 }
 
+.advent > article:first-of-type > img {
+	flex: 4 1 20rem;
+	width: 100%;
+	max-height: 34em;
+	object-fit: cover;
+}
+
 .advent > article:first-of-type > div:last-of-type {
 	display: flex;
+	flex: 2 1 15em;
 	flex-direction: column;
 	align-items: center;
 	padding: 0 1rem;
 }
 
+.advent > article:first-of-type > div:last-of-type {
+	min-width: 0;
+}
+
 .advent > article:first-of-type > div:last-of-type img {
-	height: 12.5rem;
+	height: 8rem;
+	width: 16em;
 	object-fit: cover;
 }
 
 .advent > article:first-of-type > div:last-of-type h4 {
 	color: var(--color-text-white);
+	text-align: center;
 	font-size: 1.5rem;
 	padding: 0.5rem 0;
 }
@@ -2056,7 +2120,6 @@ header div > div nav section h4 {
 	text-align: center;
 	font-size: 0.9rem;
 	line-height: 1.5rem;
-	width: 65vw;
 }
 
 .advent > article:first-of-type > div:last-of-type p.product-badge {
@@ -2082,7 +2145,7 @@ header div > div nav section h4 {
 	border: 1px solid white;
 	background: transparent;
 	color: var(--color-text-white);
-	border-radius: none;
+	border-radius: 0;
 	text-transform: uppercase;
 	cursor: pointer;
 }
@@ -2112,29 +2175,37 @@ header div > div nav section h4 {
 /* Derde-vierde sectie, tweede&derde article */
 .advent > article:nth-of-type(2), .advent > article:nth-of-type(3) {
 	display: flex;
-	flex-direction: column;
-	background: var(--color-background-christmas-red);
+	flex-wrap: wrap;
+	gap: 1.5rem;
 	padding: 1.5rem;
+	background: var(--color-background-christmas-red);
+}
+
+.advent > article:nth-of-type(2) div, .advent > article:nth-of-type(3) div {
+	display: flex;
+	flex: 2 1 15em;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .advent > article:nth-of-type(3) {
 	background: var(--color-background-christmas-darkred);
 }
 
-.advent > article:nth-of-type(2) h2, .advent > article:nth-of-type(3) h2 {
+.advent > article:nth-of-type(2) div h2, .advent > article:nth-of-type(3) div h2 {
 	order: 0;
 }
 
-.advent > article:nth-of-type(3) h2 {
+.advent > article:nth-of-type(3) div h2 {
 	margin-top: 1rem;
 }
 
-.advent > article:nth-of-type(2) p, .advent > article:nth-of-type(3) p {
+.advent > article:nth-of-type(2) div p, .advent > article:nth-of-type(3) div p {
 	line-height: 1.5rem;
 	margin: 0.5rem 0;
 }
 
-.advent > article:nth-of-type(2) a, .advent > article:nth-of-type(3) a {
+.advent > article:nth-of-type(2) div a, .advent > article:nth-of-type(3) div a {
 	padding: 1rem 2rem;
 	margin: 1rem 0 1.5rem;
 	border: 1px solid white;
@@ -2146,9 +2217,16 @@ header div > div nav section h4 {
 	width: fit-content;
 }
 
-.advent > article:nth-of-type(2) a:hover, .advent > article:nth-of-type(3) a:hover {
+.advent > article:nth-of-type(2) div a:hover, .advent > article:nth-of-type(3) div a:hover {
 	background: var(--color-dark-gray);
 	border: 1px solid var(--color-dark-gray);
+}
+
+.advent > article:nth-of-type(2) img, .advent > article:nth-of-type(3) img {
+	flex: 4 1 20rem;
+	height: 25em;
+	width: 100%;
+	object-fit: cover;
 }
 
 .advent > article:nth-of-type(3) img {
@@ -2158,7 +2236,7 @@ header div > div nav section h4 {
 /* vijfde sectie, tweede section Antwoord van onze experts */
 .advent > section:nth-of-type(2) {
 	background: var(--color-background-christmas-darkred);
-	padding: 1.5rem;
+	padding: 1.5rem clamp(1.5rem, 7vw, 10rem);
 }
 
 .advent > section:nth-of-type(2) h4 {
@@ -2228,15 +2306,46 @@ header div > div nav section h4 {
 
 /* zesde sectie, derde section Adventskalender Informatie */
 .advent > section:nth-of-type(3) {
-	display: flex;
-	flex-direction: column;
+	column-width: 23em;
+	column-gap: 5%;
+	position: relative;
 	background: var(--color-background-christmas-red);
-	padding: 1.5rem;
+	padding: 1.5rem 1.5rem 0;
+	height: 11em;
+	overflow: hidden;
+}
+
+.advent > section:nth-of-type(3)::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: linear-gradient(to bottom, rgba(0,0,0,0), var(--color-background-christmas-red));
+}
+
+.advent > section:nth-of-type(3).open::before {
+	display: none;
+}
+
+.advent > section:nth-of-type(3).open {
+	height: auto;
+	padding-bottom: 8rem;
 }
 
 .advent > section:nth-of-type(3) h2 {
 	height: 0;
 	visibility: hidden;
+}
+
+.advent > section:nth-of-type(3) article {
+	width: 100%;
+}
+
+.advent > section:nth-of-type(3).open article {
+	break-inside: avoid;
+	display: inline-block;
 }
 
 .advent > section:nth-of-type(3) article h4 {
@@ -2265,7 +2374,10 @@ header div > div nav section h4 {
 }
 
 .advent > section:nth-of-type(3) button {
-	align-self: center;
+	position: absolute;
+	left: 50%;
+	bottom: 2rem;
+	transform: translateX(-50%);
 	padding: 1.3rem 2rem;
 	margin: 1rem 0;
 	width: fit-content;
