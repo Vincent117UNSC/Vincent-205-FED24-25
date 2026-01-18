@@ -111,6 +111,16 @@ h3 {
 	order: 0;
 }
 
+a:focus, button:focus, input:focus {
+    outline: 3px solid #816356;
+}
+
+header a:focus, header button:focus, header input:focus,
+footer a:focus, footer button:focus, footer input:focus,
+.advent a:focus, .advent button:focus, .advent input:focus {
+    outline: 3px solid #c2ae99;
+}
+
 body input {
 	font-family: "Scala Sans Pro Ita";
 }
@@ -422,6 +432,12 @@ header div > nav ul > li > section > ul > li > section.laagDrieOpen {
 	left: 0;
 }
 
+header div nav[hidden],
+header div > nav ul > li > section[hidden],
+header div > nav ul > li > section > ul > li > section[hidden] {
+	display: none !important;
+}
+
 header div > nav {
 	z-index: 1;
 }
@@ -512,10 +528,10 @@ header div nav ul li > button, header div nav > ul > li > section > a {
 	width: 100%;
 }
 
-header div nav ul li > button p, header div nav > ul > li:first-of-type > section a p {
+header div nav ul li > button span, header div nav > ul > li:first-of-type > section a span {
 	font-family: "ClassGarmnd BT";
 	color: var(--color-text-white);
-	font-size: 1.5em;
+	font-size: 1.5rem;
 }
 
 header > div > nav ul > li > a {
@@ -527,7 +543,7 @@ header > div > nav ul > li > a {
 	width: 100%;
 }
 
-header div nav ul:nth-of-type(2) > li > a p {
+header div nav ul:nth-of-type(2) > li > a span {
 	color: var(--color-text-white);
 	font-size: 1.3em;
 }
@@ -634,13 +650,13 @@ header div nav > ul > li > section > ul > li > section > ul > li a {
 	text-align: center;
 }
 
-header div nav > ul > li > section > ul > li > section > ul > li p {
+header div nav > ul > li > section > ul > li > section > ul > li span{
 	color: var(--color-text-white);
 	font-size: 0.85em;
 	opacity: 60%;
 }
 
-header div nav > ul > li > section > ul > li > section > ul > li:hover p {
+header div nav > ul > li > section > ul > li > section > ul > li:hover span {
 	opacity: 100%;
 }
 

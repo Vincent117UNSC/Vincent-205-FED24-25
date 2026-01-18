@@ -41,16 +41,16 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   #### Screenshot(s) van de eerste pagina (small screen): 
   Home pagina Rituals.
   
-  <img src="readme-images/rituals-home-mobile.png" width="300px" alt="Rituals home pagina op telefoon">
+  <img src="readme-images/rituals-home-mobile.png" width="250px" alt="Rituals home pagina op telefoon">
   
-  <img src="readme-images/rituals-home-pc.png" width="450px" alt="Rituals home pagina op desktop en laptop">
+  <img src="readme-images/rituals-home-pc.png" width="500px" alt="Rituals home pagina op desktop en laptop">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   Product overzicht pagina advent kalendars bij Rituals.
   
-  <img src="readme-images/rituals-advent-mobile.png" width="300px" alt="Rituals product overzicht pagina op telefoon">
+  <img src="readme-images/rituals-advent-mobile.png" width="250px" alt="Rituals product overzicht pagina op telefoon">
   
-  <img src="readme-images/rituals-advent-pc.png" width="450px" alt="Rituals product overzicht pagina op desktop en laptop">
+  <img src="readme-images/rituals-advent-pc.png" width="500px" alt="Rituals product overzicht pagina op desktop en laptop">
  
 </details>
 
@@ -190,7 +190,6 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   - Helemaal prima om hem zelf te maken, zolang de juiste elementen gebruikt worden. Libraries kunnen handig zijn en dingen versimpelen, maar er je hebt er minder controle over.
   - onClick kan nog wel, maar het is wat verouderd, EventListeners zijn moderner en flexibeler mee te werken.
   - Bij het veranderen van de taal of land veranderd de http, dit betekent dat het naar een andere pagina gaat, en de a die ik nu heb is dus ook de juiste keuze.
-  - Verder nog 
 
   - Voor responsive alleen @media gebruiken als het niet anders kan, probeer zoveel mogelijk gewoon met grid en flexbox te doen, en met echte sprongen dus @media.
   - Kan ook de achtergond video maken met svg's en transform, maar geen prioriteit, alleen als er tijd over is.
@@ -206,8 +205,26 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 <details>
   <summary>uitwerken na test in 9<sup>e</sup> werkgroep</summary>
 
+  ### WCAG Checklist
+  <img src="readme-images/toegankelijkheid-test-page1.jpeg" width="350px" alt="WCAG Checklist pagina 1">
+  <img src="readme-images/toegankelijkheid-test-page2.jpeg" width="350px" alt="WCAG Checklist pagina 2">
+  <img src="readme-images/toegankelijkheid-test-page3.jpeg" width="350px" alt="WCAG Checklist pagina 3">
+  <img src="readme-images/toegankelijkheid-test-page4.jpeg" width="350px" alt="WCAG Checklist pagina 4">
+  <img src="readme-images/toegankelijkheid-test-page5.jpeg" width="350px" alt="WCAG Checklist pagina 5">
+
   ### Bevindingen
-  Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
+  De test ging redelijk soepel, heb wel nog eerst flink lopen werken aan het hamburger menu met aria en hidden en dergelijke om deze een beetje fatsoenlijk bruikbaar te maken. De meeste aspecten van de checklist zaten goed in mijn website, maar er misten ook nog wel wat dingen waar ik nog effe naar moet kijken. Dingen zoals onder andere Dark modus en reduced motion query. Maar een hoop deed de website ook goed gelukkig.
+  - De skip link verschijnd goed, en werkt, skip goed naar de hoofdinhoud.
+  - Het makkelijk en fijn om door de verschillende lagen van het hamburger menu te navigeren.
+  - De verstopte lagen en menu items werden goed overgeslagen.
+  - De verschillende key commands werkte prima, en kon zo goed vinden wat ik wou.
+  - Er waren wel nog wat plekken waar ik wat aria attributen kan toevoegen, want er word teveel opgelezen door de narrator.
+
+  Wat dus beter ging naar mijn meening is dat toegengkelijkheid meteen vanaf de basis te doen is, je hoeft er geen speciale functie voor inschakkelen. Ook blijft de layout van de website dus gewoon hetzelfde, dus dat voelde positief. 
+  
+  Wat ook beter ging is het afspelen van de video, of het pauzeren, het verschil is dat op de officiele website speeld de achtergrond video standaard af, maar de knop om hem te pauzeren staat standaard op play, dus je moet twee keer klikken om de video te stoppen. Ook stopt de achtergrond video ook in het moment, en ik heb het zo dat de poster terug komt, en je dus een netjes plaatje hebt als de video niet afspeeld, allemaal beter voor toegankelijkheid en gebruiksvriendelijkheid.
+
+  Ik heb een hoop werkend gekregen, ook nog een hoop dat ik werkend wou maken maar niet aan toe gekomen ben. Ik heb wel het gevoel dat niet alles even soepel gaat zoals op de officiele website, maar een paar dingen ook wel wat soepeler. Maar dat kan zij omdat ik nog een hoop animaties toe te voegen heb.
 
 </details>
 
@@ -229,15 +246,15 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   Dit is een breakpoint waar de drie elementen van 1 zichtbaar element in een scroll container naar alle drie de element in beeld gaat. Deze is eigenlijk met 1 regeltje in een @media opgelost, of eigenlijk een paar regeltjes, maar 2 regels in 1 selector. Die het van flexbox naar grid maakt:
 
-  <img src="readme-images/code-img10-res3advent-css.png" width="200px" alt="advent pagina breed scherm">
+  <img src="readme-images/code-img10-res3advent-css.png" width="400px" alt="advent pagina breed scherm">
 
   Het was een beetje spelen, ook omdat ik hetzelfde eigenlijk al een beetje op de homepagina had, maar dezelfde code er toch niet helemaal op leek te werken.
 
   Dan had ik ook nog de situatie dat ik een scrollbaar element had met een titel erboven. Vervolgens bij een breed scherm kwam deze titel met een extra uitleg en een knop binnen in het scroll element te staan, hieronder de twee screenshots die dit laten zien:
 
-  <img src="readme-images/code-img11-prepend_s-site.png" width="400px" alt="home pagina small scherm, prepend element">
+  <img src="readme-images/code-img11-prepend_s-site.png" width="350px" alt="home pagina small scherm, prepend element">
 
-  <img src="readme-images/code-img12-prepend_l-site.png" width="400px" alt="home pagina breed scherm, prepend element">
+  <img src="readme-images/code-img12-prepend_l-site.png" width="450px" alt="home pagina breed scherm, prepend element">
 
   En dan hieronder de js die dit element binnen de scrollcontainer plaatst en weer terug afhankelijk van de breedte van het scherm:
 
@@ -277,7 +294,17 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor eindgesprek</summary>
 
   ### Je uitkomst - karakteristiek screenshots:
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
+  Hieronder de screenshots van mijn nagemaakte website, links de mobiele versie en rechts de pc versie. Zo goed als helemaal responsive:
+
+  <img src="readme-images/eigen-site-home-mobile.png" width="250px" alt="Home pagina mobiel eigen nagemaakte website">
+  
+  <img src="readme-images/eigen-site-home-pc.png" width="500px" alt="Home pagina pc eigen nagemaakte website">
+
+  En hieronder mijn tweede pagina, de advent kalendar pagina, ik moet eerlijk zegen dat ik het gevoel heb niet helemaal de juiste keuze heb gemaakt wat betreft mijn tweede pagina, ik had wat meer uitdagends kunnen kiezen, iets met filteren en sorteren:
+
+  <img src="readme-images/eigen-site-advent-mobile.png" width="250px" alt="Advent (2de) pagina mobiel eigen nagemaakte website">
+  
+  <img src="readme-images/eigen-site-advent-pc.png" width="500px" alt="Advent (2de) pagina pc eigen nagemaakte website">
 
 
   ### Dit ging goed/Heb ik geleerd: 

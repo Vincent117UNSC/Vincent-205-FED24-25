@@ -3,8 +3,8 @@ console.log("hi")
 
 // Hamburger menu
 const body = document.querySelector("body")
-const deNav = document.querySelector("header div nav")
-const hamburgerMenuButton = document.querySelector("header div button")
+const deNav = document.querySelector("header div > nav")
+const hamburgerMenuButton = document.querySelector("header div:last-of-type > button")
 const sluitMenuButton = document.querySelector("header div nav button")
 
 const sectionsLaag2 = document.querySelectorAll("header div nav > ul > li > section")
@@ -55,22 +55,35 @@ setInterval(updateActiveItem, 3500)
 
 function openHamburgerMenu() {
     body.classList.add("menuOpenBodyHidden")
+    hamburgerMenuButton.setAttribute("aria-expanded", "true")
     deNav.classList.add("menuOpen")
+    deNav.removeAttribute("hidden")
     deZoekNav.classList.remove("zoekOpen")
 }
 
 function sluitHamburgerMenu() {
     body.classList.remove("menuOpenBodyHidden")
-
+    hamburgerMenuButton.setAttribute("aria-expanded", "false")
+    deNav.setAttribute("hidden", "")
     deNav.classList.remove("menuOpen")
     deNav.classList.remove("openButHidden")
     deNav.scrollTop = 0
 
-    sectionsLaag2.forEach(section => section.classList.remove("laagTweeOpen", "openButHidden"))
-    sectionsLaag2.forEach(section => section.scrollTop = 0)
+    sectionsLaag2.forEach(section => {
+        section.classList.remove("laagTweeOpen", "openButHidden")
+        section.setAttribute("hidden", "")
+        section.scrollTop = 0
+    })
 
-    sectionsLaag3.forEach(section => section.classList.remove("laagDrieOpen", "openButHidden"))
-    sectionsLaag3.forEach(section => section.scrollTop = 0)
+    openButtonsLaag2.forEach(button => button.setAttribute("aria-expanded", "false"))
+
+    sectionsLaag3.forEach(section => {
+        section.classList.remove("laagDrieOpen", "openButHidden")
+        section.setAttribute("hidden", "")
+        section.scrollTop = 0
+    })
+
+    openButtonsLaag3.forEach(button => button.setAttribute("aria-expanded", "false"))
 }
 
 function openZoeken() {
@@ -78,13 +91,19 @@ function openZoeken() {
 
     sectionsLaag2.forEach((section) => {
         section.classList.remove("laagTweeOpen", "openButHidden")
+        section.setAttribute("hidden", "")
         section.scrollTop = 0
     })
 
+    openButtonsLaag2.forEach(button => button.setAttribute("aria-expanded", "false"))
+
     sectionsLaag3.forEach((section) => {
         section.classList.remove("laagDrieOpen", "openButHidden")
+        section.setAttribute("hidden", "")
         section.scrollTop = 0
     })
+
+    openButtonsLaag3.forEach(button => button.setAttribute("aria-expanded", "false"))
 
     deZoekNav.classList.add("zoekOpen")
     body.classList.add("menuOpenBodyHidden")
@@ -113,6 +132,18 @@ function updateSluitButtonIcons() {
     }
 }
 
+function updateDesktopAriaStates() {
+    if (isDesktopWide()) {
+        hamburgerMenuButton.setAttribute("aria-hidden", "true")
+        deNav.removeAttribute("hidden")
+    } else {
+        hamburgerMenuButton.setAttribute("aria-hidden", "false")
+        if (!deNav.classList.contains("menuOpen")) {
+            deNav.setAttribute("hidden", "")
+        }
+    }
+}
+
 //findParent met wat hulp van chatGPT, erg lang gestruggled om het werkend te krijgen
 function findParentIndex(child, parentArray) {
     return Array.from(parentArray).findIndex((parent) => parent.contains(child))
@@ -123,11 +154,19 @@ openButtonsLaag2.forEach((button, index) => {
         sectionsLaag2.forEach((section, i) => {
             if (i !== index) {
                 section.classList.remove("laagTweeOpen")
+                section.setAttribute("hidden", "")
+            }
+        })
+
+        openButtonsLaag2.forEach((btn, i) => {
+            if (i !== index) {
+                btn.setAttribute("aria-expanded", "false")
             }
         })
 
         sectionsLaag3.forEach((section) => {
             section.classList.remove("laagDrieOpen")
+            section.setAttribute("hidden", "")
         })
 
         if (!isDesktopWide()) {
@@ -136,6 +175,8 @@ openButtonsLaag2.forEach((button, index) => {
             body.classList.add("menuOpenBodyHidden")
         }
         sectionsLaag2[index].classList.add("laagTweeOpen")
+        sectionsLaag2[index].removeAttribute("hidden")
+        button.setAttribute("aria-expanded", "true")
         deZoekNav.classList.remove("zoekOpen")
     })
 })
@@ -144,11 +185,20 @@ sluitButtonsLaag2.forEach((button, index) => {
     button.addEventListener("click", () => {
         deNav.classList.remove("openButHidden")
         sectionsLaag2[index].classList.remove("laagTweeOpen")
+        sectionsLaag2[index].setAttribute("hidden", "")
         sectionsLaag2[index].scrollTop = 0
+        openButtonsLaag2[index].setAttribute("aria-expanded", "false")
 
         sectionsLaag3.forEach((section) => {
             if (sectionsLaag2[index].contains(section)) {
                 section.classList.remove("laagDrieOpen")
+                section.setAttribute("hidden", "")
+            }
+        })
+
+        openButtonsLaag3.forEach((btn) => {
+            if (sectionsLaag2[index].contains(btn)) {
+                btn.setAttribute("aria-expanded", "false")
             }
         })
 
@@ -164,10 +214,19 @@ openButtonsLaag3.forEach((button, index) => {
         sectionsLaag3.forEach((section, i) => {
             if (findParentIndex(section, sectionsLaag2) === parentIndex && i !== index) {
                 section.classList.remove("laagDrieOpen")
+                section.setAttribute("hidden", "")
+            }
+        })
+
+        openButtonsLaag3.forEach((btn, i) => {
+            if (findParentIndex(sectionsLaag3[i], sectionsLaag2) === parentIndex && i !== index) {
+                btn.setAttribute("aria-expanded", "false")
             }
         })
 
         sectionsLaag3[index].classList.add("laagDrieOpen")
+        sectionsLaag3[index].removeAttribute("hidden")
+        button.setAttribute("aria-expanded", "true")
 
         const parentSection = sectionsLaag2[findParentIndex(sectionsLaag3[index], sectionsLaag2)]
         if (parentSection) {
@@ -179,7 +238,9 @@ openButtonsLaag3.forEach((button, index) => {
 sluitButtonsLaag3.forEach((button, index) => {
     button.addEventListener("click", () => {
         sectionsLaag3[index].classList.remove("laagDrieOpen")
+        sectionsLaag3[index].setAttribute("hidden", "")
         sectionsLaag3[index].scrollTop = 0
+        openButtonsLaag3[index].setAttribute("aria-expanded", "false")
 
         const parentSection = sectionsLaag2[findParentIndex(sectionsLaag3[index], sectionsLaag2)]
         if (parentSection) {
@@ -218,4 +279,6 @@ zoekenButton.addEventListener("click", openZoeken)
 terugZoekenButton.addEventListener("click", terugVanZoeken)
 
 updateSluitButtonIcons()
+updateDesktopAriaStates()
 window.addEventListener("resize", updateSluitButtonIcons)
+window.addEventListener("resize", updateDesktopAriaStates)
