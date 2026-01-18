@@ -396,6 +396,7 @@ header > div:last-of-type > div {
 header div nav,
 header div > nav ul > li > section,
 header div > nav ul > li > section > ul > li > section {
+	display: none;
 	position: fixed;
 	overflow: hidden;
 	top: 0;
@@ -417,6 +418,7 @@ header div > nav ul > li > section > ul > li > section::-webkit-scrollbar {
 header div nav.menuOpen, header div nav.zoekOpen,
 header div > nav ul > li > section.laagTweeOpen,
 header div > nav ul > li > section > ul > li > section.laagDrieOpen {
+	display: block;
 	left: 0;
 }
 
@@ -658,6 +660,7 @@ header div nav > ul > li > section > ul > li > section > ul > li img {
     }
 
 	header > div:last-of-type > nav {
+		display: block;
 		position: static;
 		width: auto;
 		height: auto;
