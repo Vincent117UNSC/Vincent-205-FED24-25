@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Laag_2" data-name="Laag 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92.18 92.25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 2.96px;
+      }
+    </style>
+  </defs>
+  <g id="Laag_2-2" data-name="Laag 2">
+    <g>
+      <circle class="cls-1" cx="37.37" cy="37.37" r="35.89"/>
+      <line class="cls-1" x1="90.7" y1="90.77" x2="62.72" y2="62.79"/>
+    </g>
+  </g>
+</svg>

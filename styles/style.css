@@ -1,0 +1,2906 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+*, *::after, *::before {
+  box-sizing:border-box;  
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+@font-face {
+	font-family: Scala Sans Pro;
+	src: url(../fonts/scala-sans-pro/scala-sans-pro-regular.ttf);
+}
+
+@font-face {
+	font-family: Scala Sans Pro Light;
+	src: url(../fonts/scala-sans-pro/scala-sans-pro-light.ttf);
+}
+
+@font-face {
+	font-family: Scala Sans Pro Light-italic;
+	src: url(../fonts/scala-sans-pro/scala-sans-pro-light-italic.ttf);
+}
+
+@font-face {
+	font-family: ClassGarmnd BT;
+	src: url(../fonts/class-garmnd-bt/classical-garamond-bt.ttf);
+}
+
+@font-face {
+	font-family: ClassGarmnd BT Light;
+	src: url(../fonts/class-garmnd-bt/classical-garamond-bt-light.ttf);
+}
+
+:root {
+	/* Colors */
+	--color-light-background-white:#ffffff;
+	--color-background-christmas-darkred:#5b1218;
+	--color-background-christmas-red:#68161d;
+	--color-secondary-light-background:#faf9f7;
+	--color-gray:#242222;
+	--color-dark-gray:#1a1919;
+	--color-text-white:#ffffff;
+	--color-text-black:#1a1919;
+	--color-text-red:#68161d;
+	--color-small-titles-darkbeige:#816356;
+	--color-small-titles-beige-darkbg:#c2ae99;
+	--color-secondary-text-gray:#453f3f;
+	--color-secondary-text-lightgray:#626262;
+	--color-secondary-text-lightgray-darkbg:#d8d8d8;
+	--color-lightbrown-darkbg:#b8a188;
+	--color-brown-lightbg:#9a7b69;
+	--color-icon-white:#ffffff;
+	/* Fonts */
+	--font-body: "Scala Sans Pro Light", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+	--font-titles: "ClassGarmnd BT", "Georgia", "Times New Roman", serif;
+	--font-prices-buttons: "ClassGarmnd BT", "Georgia", "Times New Roman", serif;
+	/* Spacing */
+	--spacing-footer-left-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+	:root {
+		/* Spacing */
+	--spacing-footer-left-right: 3rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	:root {
+		/* Spacing */
+	--spacing-footer-left-right: 6rem;
+	}
+}
+
+body {
+	font-family: var(--font-body);
+	overflow-x: hidden;
+}
+
+body img{
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-titles);
+}
+
+h2 {
+	font-size: 1.75em;
+	font-weight: 500;
+	line-height: 1.5em;
+	color: var(--color-text-black);
+	order: 1;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	letter-spacing: 0.1em;
+	font-weight: 400;
+	color: var(--color-small-titles-darkbeige);
+	order: 0;
+}
+
+a:focus, button:focus, input:focus {
+    outline: 3px solid #816356;
+}
+
+header a:focus, header button:focus, header input:focus,
+footer a:focus, footer button:focus, footer input:focus,
+.advent a:focus, .advent button:focus, .advent input:focus {
+    outline: 3px solid #c2ae99;
+}
+
+body input {
+	font-family: "Scala Sans Pro Ita";
+}
+
+body .product-badge {
+	background-color: #ffffff;
+	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
+}
+
+			/************************/
+			/* top nav bar (header) */
+			/************************/
+		/* Small scherm - mobiel */
+main {
+	margin-top: 6em;
+	transition: margin-top 0.3s linear;
+}
+
+header.nav-up ~ main {
+	margin-top: 0em;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	transition: top 0.1s linear;
+	z-index: 1000;
+}
+
+header.nav-up {
+	top: -6em;
+	transition: top 0.3s linear;
+}
+
+header > a {
+	position: absolute;
+	top: 0;
+	left: -9999px;
+	margin: 0.5rem;
+	padding: 0.5rem 1rem;
+	background: var(--color-dark-gray);
+	color: var(--color-text-white);
+	text-decoration: none;
+	z-index: 2000;
+}
+
+header > a:focus {
+	outline: 2px solid var(--color-text-white);
+	outline-offset: 2px;
+	left: 0.5rem;
+}
+
+header > div:first-of-type {
+	background: var(--color-gray);
+}
+
+header > div:first-of-type > ul:first-of-type {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 2em;
+	text-align: center;
+	list-style-type: none;
+	line-height: 1em;
+	color: var(--color-text-white);
+}
+
+header div:first-of-type > ul:first-of-type li {
+	display: none;
+    animation: fadeInOut 3.5s ease-in-out forwards;
+    animation-play-state: paused;
+}
+
+header div:first-of-type ul:first-of-type li.active {
+	display: block;
+	animation-play-state: running;
+	font-size: 0.75em;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+	80% {
+		opacity: 1;
+	}
+    100% {
+        opacity: 0;
+    }
+}
+
+header div:first-of-type > ul:first-of-type li a {
+	color: var(--color-lightbrown-darkbg);
+}
+
+header > div:first-of-type > a,
+header > div:first-of-type > ul:last-of-type {
+	display: none;
+	height: 0;
+	width: 0;
+}
+
+header > div:last-of-type {
+	display: grid;
+	grid-template-columns: 4em 9em auto;
+	background-color: var(--color-dark-gray);
+	align-items: center;
+	padding: 0 1em;
+	height: 4em;
+}
+
+header > div:last-of-type button {
+	border: none;
+	background: none;
+	font-size: 1em;
+	line-height: normal;
+	cursor: pointer;
+}
+
+header > div:last-of-type > button, header > div:last-of-type > div button {
+	display: inline-flex;
+	justify-content: start;
+	align-items: center;
+}
+
+header > div:last-of-type > button svg {
+	height: 1rem;
+}
+
+header > div:last-of-type > a {
+	display: inline-flex;
+	align-items: center;
+}
+
+header svg {
+	stroke: var(--color-icon-white);
+	stroke-linecap: round;
+	stroke-linejoin: miter;
+	stroke-miterlimit: 10;
+	stroke-width: 3px;
+	flex-shrink: 0;
+	fill: none;
+}
+
+header div > button svg, header div > div > a svg {
+	max-height: 1.5em;
+	min-width: 1.5em;
+}
+
+header > div:last-of-type > div > a {
+	text-decoration: none;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header > div:last-of-type > nav > div > button > svg {
+	max-height: 1.1em;
+}
+
+header > div:last-of-type nav div div a svg {
+	max-height: 1.5em;
+	min-width: 1.5em;
+	margin: 0 .5em;
+}
+
+header > div:last-of-type > a img {
+	max-height: 1.5em;
+	min-width: 8.2em;
+}
+
+header > div:last-of-type > div {
+	display: flex;
+	gap: 0.75rem;
+	justify-content: end;
+}
+		/* Medium scherm - tablet */
+@media (min-width: 768px) {
+	header > div:last-of-type > div {
+		gap: 1.5rem;
+	}
+}
+		/* Large scherm - computer */
+@media (min-width: 1024px) {
+	main {
+		margin-top: 7em;
+	}
+
+	header.nav-up {
+		top: -7em;
+	}
+
+	header > div:first-of-type {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		padding: 0 2.5rem;
+		height: 3em;
+	}
+
+	header > div:first-of-type > ul:first-of-type {
+		height: auto;
+		width: auto;
+		justify-content: start;
+	}
+
+	header > div:first-of-type > a,
+	header > div:first-of-type > ul:last-of-type {
+		display: inline-block;
+		height: auto;
+		width: auto;
+	}
+
+	header > div:first-of-type > a {
+		display: flex;
+		align-items: center;
+	}
+
+	header > div:first-of-type > a img {
+		height: 1rem;
+	}
+
+	header > div:first-of-type > ul:last-of-type {
+		display: flex;
+		list-style: none;
+		height: 3em;
+		justify-content: end;
+		align-items: center;
+	}
+
+	header > div:first-of-type > ul:last-of-type li {
+		display: flex;
+		align-items: center;
+		font-size: 0.75rem;
+	}
+
+	header > div:first-of-type > ul:last-of-type li + li::before {
+		content: "\2022";
+		line-height: 1;
+		padding: 0 0.45rem;
+		font-size: 1.6em;
+		color: var(--color-secondary-text-lightgray);
+		transform: translateY(-0.06em);
+	}
+
+	header > div:first-of-type > ul:last-of-type li a {
+		color: var(--color-secondary-text-lightgray-darkbg);
+		text-decoration: none;
+	}
+
+	header > div:first-of-type > ul:last-of-type li a:hover {
+		color: var(--color-text-white);
+		text-decoration: underline;
+	}
+
+	header > div:last-of-type {
+		padding: 0 2.5em;
+		grid-template-columns: auto 9em;
+	}
+
+	header > div:last-of-type > button {
+		display: none;
+	}
+
+	header > div:last-of-type > a {
+		display: none;
+	}
+
+	header > div:last-of-type > div {
+		gap: 2rem;
+	}
+}
+			/*****************/
+			/* Hamburgermenu */
+			/*****************/
+		/* Small scherm - mobiel */
+header div nav,
+header div > nav ul > li > section,
+header div > nav ul > li > section > ul > li > section {
+	display: none;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100vh;
+	max-height: 100%;
+	background: var(--color-dark-gray);
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+header div nav::-webkit-scrollbar,
+header div > nav ul > li > section::-webkit-scrollbar,
+header div > nav ul > li > section > ul > li > section::-webkit-scrollbar {
+	display: none;
+}
+
+header div nav.menuOpen, header div nav.zoekOpen,
+header div > nav ul > li > section.laagTweeOpen,
+header div > nav ul > li > section > ul > li > section.laagDrieOpen {
+	display: block;
+	left: 0;
+}
+
+header div nav[hidden],
+header div > nav ul > li > section[hidden],
+header div > nav ul > li > section > ul > li > section[hidden] {
+	display: none !important;
+}
+
+header div > nav {
+	z-index: 1;
+}
+
+header div > nav ul > li > section {
+	z-index: 2;
+	padding-top: 4em;
+}
+
+header div > nav ul > li > section > ul > li > section {
+	z-index: 3;
+}
+
+.menuOpenBodyHidden {
+	overflow: hidden;
+}
+
+.menuOpen, .laagTweeOpen, .laagDrieOpen {
+	overflow: auto;
+}
+
+.openButHidden {
+	overflow: hidden;
+}
+
+	/*hamburgermenu en zoeken*/
+header div > nav > div, header div > div nav > div {
+	position: sticky;
+	display: flex;
+	top: 0;
+	width: 100%;
+	z-index: 4;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-gray);
+	height: 4em;
+}
+
+header div > nav > div div, header div > div nav div > div {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	background-color: var(--color-dark-gray);
+	height: 3em;
+	margin: 0.5em 0.5em 0.5em 0;
+	padding: 0 0.5em;
+	border-radius: 1.5em;
+}
+
+header div > nav > div div input {
+	all: unset;
+	flex-grow: 1;
+	margin-left: 0.5em;
+	color: var(--color-text-white);
+	font-family: "Scala Sans Pro light-italic";
+}
+
+header div > nav > div div input::placeholder {
+	color: var(--color-text-white);
+	opacity: 0.8;
+}
+
+					/*hamburgermenu from 1st layer*/
+header div > nav > ul svg {
+	height: 0.6em;
+	min-width: 0;
+}
+
+header div > nav > div div a {
+	display: flex;
+}
+
+header div > nav > div button {
+	margin: 0 1em;
+}
+
+header div > nav > ul {
+	margin: 2.2em 0.5em;
+	list-style: none;
+}
+
+header div nav ul li > button, header div nav > ul > li > section > a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.9em 1em;
+	gap: 1rem;
+	width: 100%;
+}
+
+header div nav ul li > button span, header div nav > ul > li:first-of-type > section a span {
+	font-family: "ClassGarmnd BT";
+	color: var(--color-text-white);
+	font-size: 1.5rem;
+}
+
+header > div > nav ul > li > a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-decoration: none;
+	padding: 0.9em 1em;
+	width: 100%;
+}
+
+header div nav ul:nth-of-type(2) > li > a span {
+	color: var(--color-text-white);
+	font-size: 1.3em;
+}
+
+					/*hamburgermenu from 2nd layer*/
+header div nav ul li section > button {
+	margin: 1em;
+	padding: 0.7em;
+}
+
+header div nav ul li section > button:first-child svg {
+	stroke-width: 2px;
+	height: 0.9em;
+	transform: rotate(0deg);
+}
+
+header div nav > ul > li section h2 {
+	font-size: 1em;
+	padding: 1em 1.5em;
+}
+
+header div nav > ul > li section h2 > a {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	text-decoration: none;
+	padding-right: 1em;
+}
+
+header div nav > ul > li section h2 > a > span {
+	display: inline-block;
+	padding: 0.10rem 0;
+	position: relative;
+	font-family: "Scala Sans Pro Light";
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 0.8em;
+	letter-spacing: 0.1em;
+	margin-right: 0.5em;
+	color: var(--color-text-white);
+}
+
+/*Underline annimation bron: https://www.youtube.com/watch?v=n8dPFkT0dpE*/
+header div nav > ul > li section h2 > a > span::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 1px;
+	background-color: var(--color-text-white);
+	transition: width 150ms linear;
+}
+
+header div nav > ul > li section h2 > a > span:hover::before {
+	width: 100%;
+}
+
+header div nav > ul > li section h2 > a > svg {
+	stroke-width: 3px;
+	height: 0.5em;
+	opacity: 80%;
+}
+
+header div nav h3 {
+	color: var(--color-lightbrown-darkbg);
+	font-size: 0.75em;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 1em 2em;
+	margin-top: 1em;
+}
+
+header div nav > ul > li > section ul:last-child {
+	margin-bottom: 2em;
+}
+
+header div nav > ul > li:first-of-type > section ul li a,
+header div nav > ul > li > section ul li > button {
+	padding: 0.7em 1.5em;
+}
+
+					/*hamburgermenu from 3rd layer*/
+header div nav > ul > li > section > ul > li > section > ul {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	list-style: none;
+	margin: 0.5em;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li {
+	grid-column: span 1;
+}
+
+header div nav > ul > li > section > ul > li > section > ul:has(li:only-child) li {
+	grid-column: span 2;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li span{
+	color: var(--color-text-white);
+	font-size: 0.85em;
+	opacity: 60%;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li:hover span {
+	opacity: 100%;
+}
+
+header div nav > ul > li > section > ul > li > section > ul > li img {
+	width: 100%;
+	height: auto;
+	box-shadow: 0 0 1em 1em transparent inset;
+	mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /*via chatGPT*/
+}
+
+		/* Medium scherm - tablet */
+
+		/* Large scherm - computer */
+@media (min-width: 1024px) {
+	.openButHidden {
+        overflow: auto;
+    }
+
+	header > div:last-of-type > nav {
+		display: block;
+		position: static;
+		width: auto;
+		height: auto;
+		background: none;
+	}
+
+	header > div:last-of-type > nav > ul > li > section,
+	header > div:last-of-type > nav > ul > li > section > ul > li > section {
+		display: flex;
+		flex-direction: column;
+		top: 7em;
+	}
+
+	header > div:last-of-type > nav > ul > li > section button,
+	header > div:last-of-type > nav > ul > li > section > ul > li > section button {
+		align-self: flex-end;
+	}
+
+	header > div:last-of-type > nav > ul > li > section h2,
+	header > div:last-of-type > nav > ul > li > section > ul > li > section h2 {
+		order: inherit;
+	}
+
+	header > div:last-of-type > nav > div,
+	header > div:last-of-type > nav ul li > a > svg,
+	header > div:last-of-type > nav ul li > button > svg {
+		display: none;
+	}
+
+	header div nav > ul > li:first-of-type > section a p,
+	header > div:last-of-type > nav ul li > a > p,
+	header > div:last-of-type > nav ul li > button > p {
+		font-size: 1rem;
+	}
+
+	header > div:last-of-type > nav > ul:first-of-type {
+		display: flex;
+		margin: 0;
+		gap: 2rem;
+	}
+
+	header > div:last-of-type > nav > ul:first-of-type > li > button {
+		display: inline-block;
+		position: relative;
+		padding: 0;
+		height: 4em;
+	}
+
+	header > div:last-of-type > nav > ul:first-of-type > li > button span {
+		font-size: 1rem;
+	}
+
+	header > div:last-of-type > nav > ul:first-of-type > li > button::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 0;
+		height: 2px;
+		background-color: var(--color-text-white);
+		transition: width 150ms linear;
+	}
+
+	header > div:last-of-type > nav > ul:first-of-type > li > button:hover::before {
+		width: 100%;
+	}
+
+	header > div:last-of-type > nav > ul:first-of-type > li > button p {
+		font-size: 1em;
+		color: var(--color-secondary-text-lightgray-darkbg);
+	}
+
+	header > div:last-of-type > nav > ul:first-of-type > li > button p:hover {
+		color: var(--color-text-white);
+	}
+
+	header > div:last-of-type > nav > ul:last-of-type,
+	header > div:last-of-type > nav > ul:first-of-type > li > button svg {
+		display: none;
+	}
+	
+	header > div:last-of-type > nav > ul > li > section {
+		width: 24em;
+		height: calc(100vh - 7em);
+		padding-top: 0;
+	}
+
+	header > div:last-of-type > nav > ul > li > section.laagTweeOpen::before {
+        content: "";
+        position: fixed;
+        top: 7em;
+        left: 24em;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+
+	header > div:last-of-type > nav > ul > li > section > ul > li > section {
+		width: 28em;
+		padding-top: 0;
+		height: calc(100vh - 7em);
+		background: var(--color-gray);
+	}
+
+	header > div:last-of-type > nav > ul > li > section > ul > li > section.laagDrieOpen {
+		left: 24em;
+	}
+}
+
+					/*zoeken*/
+.zoekOpen {
+	overflow: auto;
+}
+
+header div > div nav > div > button svg {
+	height: 1.2em;
+}
+
+header div > div nav section {
+	background-color: white;
+	height: calc(100% - 4em);
+	font-family: "Scala Sans Pro";
+	padding: 1.5em;
+}
+
+header div > div nav section ul {
+	list-style: none;
+}
+
+header div > div nav section ul li {
+	margin: 1em 0;
+}
+
+header div > div nav section ul li a,
+header div > div nav section h4  {
+	color: var(--color-secondary-text-gray);
+	font-family: "Scala Sans Pro Light";
+	text-decoration: none;
+	font-size: 1em;
+}
+
+header div > div nav section ul li a:hover {
+	text-decoration: underline;
+}
+
+header div > div nav section h4 {
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 0.8em;
+	font-weight: 200;
+	margin: 0.5em 0 1.5em;
+}
+
+@media (min-width: 768px) {
+	header div:last-of-type > div nav {
+		position: absolute;
+		visibility: hidden;
+		height: auto;
+		max-height: none;
+		width: 0;
+		top: 2em;
+		left: auto;
+		right: 5.5em;
+	}
+
+	header div:last-of-type > div nav.zoekOpen {
+		visibility: visible;
+		width: auto;
+	}
+
+	header div:last-of-type > div nav.zoekOpen::after {
+		content: "";
+        position: fixed;
+        top: 6em;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+	}
+
+	header > div:has(> div > nav.zoekOpen) {
+		background-color: var(--color-gray);
+	}
+}
+
+@media (min-width: 1024px) {
+	header div:last-of-type > div nav {
+		top: 3em;
+		right: 8em;
+	}
+
+	header div:last-of-type > div nav.zoekOpen::after {
+        top: 7em;
+	}
+}
+
+			/*****************************/
+			/* MAIN, homepagina, (Index) */
+			/*****************************/
+/* Eerste section */
+.index h1 {
+	visibility: hidden;
+	height: 0;
+}
+
+.index > section:first-of-type {
+	position: relative;
+	height: 32em;
+	min-height: 500px;
+	overflow: hidden;
+}
+
+/* Scroll-snap bron: https://www.30secondsofcode.org/css/s/scroll-snap/?utm_source=chatgpt.com */
+.index section:first-of-type > ul:first-of-type {
+	display: flex;
+	position: absolute;
+	left: 0;
+	right: 0;
+	gap: 0.5em;
+	margin-top: 0.8em;
+	padding: 0 0.5em;
+	list-style: none;
+	overflow: hidden;
+	z-index: 10;
+	overscroll-behavior-x: contain;
+ 	scroll-snap-type: x proximity;
+	scroll-behavior: smooth;
+	scroll-padding: 0 0.5rem;
+}
+
+.index section:first-of-type > ul:first-of-type.scrolling {
+	scroll-snap-type: none;
+}
+
+.index section:first-of-type > ul:first-of-type li {
+	flex-shrink: 0;
+	scroll-snap-align: start;
+	/*scroll-snap-stop: always;*/
+}
+
+.index section:first-of-type ul:first-of-type li a {
+	display: inline-block;
+	font-size: 0.875em;
+	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 0.4em 1em;
+	border-radius: 2em;
+	color: var(--color-text-white);
+}
+
+.index section:first-of-type ul:nth-of-type(2) {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	width: 100%;
+	height: 32em;
+	overflow: hidden;
+	list-style: none;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	height: 32em;
+	top: 0;
+	left: 0;
+	right: 0;
+    visibility: hidden;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li.active {
+	visibility: visible;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+.index section:first-of-type ul:nth-of-type(2) li video {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	z-index: 1;
+	opacity: 0;
+}
+
+
+.index section:first-of-type ul:nth-of-type(2) li.active.volgende video,
+.index section:first-of-type ul:nth-of-type(2) li.active.vorige video {
+	animation: fadeOut 0.5s linear;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li.active video {
+	opacity: 1;
+	animation: fadeIn 0.5s linear;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li div {
+	position: absolute;
+	top: 17em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 70%;
+	color: var(--color-text-white);
+	opacity: 0;
+	z-index: 2;
+	transform: translateX(0);
+	transition: transform 0.3s linear, opacity 0.3s linear;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li.volgende div {
+	opacity: 0;
+	transform: translateX(200px);
+	transition: transform 0.2s linear, opacity 0.2s linear;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li.slide-in-rechts div {
+	opacity: 1;
+	transform: translateX(0);
+	transition: transform 0.2s linear, opacity 0.2s linear;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li.vorige div {
+	opacity: 0;
+	transform: translateX(-200px);
+	transition: transform 0.2s linear, opacity 0.2s linear;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li.slide-in-links div {
+	opacity: 1;
+	transform: translateX(0);
+	transition: transform 0.2s linear, opacity 0.2s linear;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li div h2 {
+	order: 1;
+	text-align: center;
+	color: var(--color-text-white);
+}
+
+.index section:first-of-type ul:nth-of-type(2) li div h3 {
+	order: 0;
+	color: var(--color-text-white);
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li div a {
+	order: 2;
+	background-color: #ffffff;
+	text-decoration: none;
+	color: #1a1919;
+	text-transform: uppercase;
+	padding: 1.5em 3em;
+	margin: 1em 0;
+	font-size: 0.7em;
+	letter-spacing: 0.1em;
+	transition: background-color 0.3s ease;
+}
+
+.index section:first-of-type ul:nth-of-type(2) li div a:hover {
+	background-color: #d8d8d8;
+	transition: background-color 0.3s ease;
+}
+
+.index section:first-of-type > div {
+	display: flex;
+	width: auto;
+	justify-content: space-between;
+	align-items: center;
+	overflow: hidden;
+	position: absolute;
+	bottom: 1.5em;
+	right: 0;
+	left: 0;
+	margin: 0 1.5em;
+	z-index: 10;
+	gap: 1em;
+}
+
+.index section:first-of-type > div > nav {
+	display: flex;
+	flex-grow: 1;
+	justify-content: start;
+}
+
+.index section:first-of-type > div > nav > ul {
+	display: flex;
+	width: auto;
+	list-style: none;
+	gap: 0.5em;
+	padding: 0.5em;
+	margin: 0;
+	background-color: rgba(26, 25, 25, 0.6);
+	border-radius: 1em;
+}
+
+.index section:first-of-type > div > nav > ul li {
+	display: flex;
+	align-items: center;
+}
+
+.index section:first-of-type > div > nav > ul li button {
+	border: none;
+	background-color: #cccccc;
+	height: 0.25rem;
+	width: 0.25rem;
+	border-radius: 0.2rem;
+	cursor: pointer;
+}
+
+.index section:first-of-type > div > nav > ul li.active button {
+	background-color: #ffffff;
+	height: 0.35rem;
+	width: 0.35rem;
+}
+
+.index section:first-of-type div > button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	position: relative;
+	height: 2.5em;
+	width: 2.5em;
+	background-color: rgba(26, 25, 25, 0.6);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 1.25em;
+	font-size: 1em;
+	cursor: pointer;
+	transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.index section:first-of-type div > button:hover {
+	background-color: rgba(26, 25, 25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.index section:first-of-type div > button svg {
+	position: absolute;
+	height: 0.75em;
+	width: 0.75em;
+	fill: none;
+    stroke: var(--color-icon-white);
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 4px;
+}
+
+.index section:first-of-type div button:first-of-type svg:nth-of-type(1) {
+	opacity: 1;
+	transform: rotate(0deg);
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.index section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(1) {
+	opacity: 0;
+	transform: rotate(180deg);
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.index section:first-of-type div button:first-of-type svg:nth-of-type(2) {
+	opacity: 0;
+	transform: rotate(-180deg);
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.index section:first-of-type div button:first-of-type.pauzeer svg:nth-of-type(2) {
+	opacity: 1;
+	transform: rotate(0deg);
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+	.index section:first-of-type > ul:first-of-type {
+		display: none;
+		top: -4em
+	}
+}
+/* Section2 Cyber Monday deals & Section5 Favorieten van onze fans*/
+.index section:nth-of-type(2),
+.index section:nth-of-type(5) {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 1.5em;
+}
+
+.articles-intro {
+	display: flex;
+	flex-direction: column;
+}
+
+.articles-intro h2 {
+	order: 1;
+	margin-top: 0.5em;
+}
+
+.articles-intro h3 {
+	order: 0;
+	margin-top: 2.5em;
+}
+
+.articles-intro p {
+	display: none;
+	order: 2;
+	color: var(--color-secondary-text-lightgray);
+	font-size: 0.875em;
+	letter-spacing: 0.025em;
+	line-height: 1.5em;
+	margin-top: 1rem;
+}
+
+.articles-intro.in-scroller p {
+	display: block;
+}
+
+.articles-intro a {
+	display: none;
+	order: 3;
+	margin-top: 1.5em;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	color: var(--color-text-black);
+	font-weight: 400;
+	font-size: 0.75rem;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	border: 1px solid rgba(26, 25, 25, 0.16);
+	background-color: transparent;
+	width: fit-content;
+	transition: color 0.2s ease, border 0.2s ease, background-color 0.2s ease;
+}
+
+.articles-intro a:hover {
+	color: var(--color-text-white);
+	border: 1px solid #1a1919;
+	background-color: #1a1919;
+	transition: color 0.2s ease, border 0.2s ease, background-color 0.2s ease;
+}
+
+.articles-intro.in-scroller a {
+	display: inline-block;
+}
+
+.articles-container {
+	display: flex;
+	overflow-x: auto;
+    overflow-y: hidden;
+	gap: 0.5em;
+	margin: 1em 0;
+	padding: 0 1.5em; 
+	width: calc(100% + 3em);
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+    transform: translateX(-1.5em);   
+}
+
+.articles-container::-webkit-scrollbar {
+	display: none;
+}
+
+.articles-container > div {
+	min-width: 14em;
+}
+
+.articles-container > article {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 9.25rem 9.25rem auto auto 4rem auto 0.6rem 1.1rem;
+	justify-items: start;
+	width: 14em;
+	min-width: 14em;
+}
+
+.articles-container > article h4 {
+	grid-row: 3/4;
+	grid-column: 1/3;
+	font-size: 1rem;
+	font-weight: 500;
+	margin: 0.5em 0.3em 0.25em;
+}
+
+.articles-container > article > img {
+	grid-row: 1/3;
+	grid-column: 1/3;
+	width: 100%;
+	height: auto;
+	background-color: #faf9f7;
+}
+
+.articles-container > article .product-badge {
+	grid-row: 2/3;
+	grid-column: 1/3;
+	align-self: end;
+	max-width: calc(100% - 2.5rem);
+	margin-bottom: 1em;
+}
+/* :is() bron: https://www.sitepoint.com/css-is-where-has-pseudo-class-selectors/?utm_source=chatgpt.com */
+.articles-container > article :is(img + p.product-badge + p, img + p:not(.product-badge)) {
+	grid-row: 4/5;
+	grid-column: 1/3;
+	font-size: 0.75rem;
+	margin: 0 0.3em;
+	color: var(--color-secondary-text-lightgray);
+}
+
+.articles-container > article > ul {
+	display: flex;
+	grid-row: 5/6;
+	grid-column: 1/3;
+	margin: 0.3em 0.3em 1em;
+	list-style: none;
+}
+
+.articles-container > article > ul li {
+	display: flex;
+	width: 2.5rem;
+	height: 2.5rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.articles-container > article > ul li button {
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	width: 2.5rem;
+	height: 2.5rem;
+	z-index: 10;
+}
+
+.articles-container > article > ul li button img {
+	width: 2.5em;
+	height: 2.5em;
+	object-fit: cover;
+}
+
+.articles-container > article > p:has(+ button) {
+	grid-row: 6 / 7;
+	grid-column: 1 / 3;
+	margin-left: 0.3em;
+	font-size: 1rem;
+	line-height: 1.25em;
+	font-weight: 400;
+	font-family: var(--font-prices-buttons);
+	align-self: end;
+}
+
+.articles-container > article > p:has(+ p + button):not(:is(img + p.product-badge + p,img + p:not(.product-badge))) {
+	grid-row: 6 / 7;
+	grid-column: 1 / 3;
+	margin-left: 0.3em;
+	font-size: 0.9rem;
+	line-height: 1.25em;
+	font-weight: 400;
+	font-family: var(--font-prices-buttons);
+	align-self: center;
+	padding-bottom: 0.5em;
+	text-decoration: line-through;
+	opacity: .6;
+}
+
+.articles-container > article > button {
+	grid-row: 6/7;
+	grid-column: 2/3;
+	justify-self: end;
+	align-self: end;
+	height: 3.8em;
+	width: 3.8em;
+	margin-right: 0.3em;
+	border: 1px solid rgba(26, 25, 25, 0.16);
+	background-color: transparent;
+	border-radius: 2em;
+	cursor: pointer;
+	transition: border 0.3s ease;
+	z-index: 10;
+}
+
+.articles-container > article > button:hover {
+	border: 1px solid rgba(26, 25, 25, 0.9);
+	transition: border 0.3s ease;
+}
+
+.articles-container > article > button svg {
+	height: 1.75em;
+	stroke: #1a1919;
+	stroke-width: 2px;
+	stroke-miterlimit: 10;
+	stroke-linecap: round;
+	fill: none;
+}
+
+.articles-container > article > div {
+	grid-row: 7/8;
+	grid-column: 1/3;
+	margin: 0.5em 0.3em 0.2em;
+	border-bottom: 1px solid rgba(26, 25, 25, 0.16);
+	width: calc(100% - 0.6em);
+}
+
+.articles-container > article > div + p {
+	grid-row: 8/9;
+	grid-column: 1/3;
+	font-size: 0.75rem;
+	margin: 0 0.3em;
+	color: var(--color-secondary-text-lightgray);
+}
+
+.articles-container > article > a {
+	grid-row: 1/9;
+	grid-column: 1/3;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+}
+
+@media (min-width: 1024px) {
+	.articles-container {
+		padding: 2em 1.5em;
+	}
+
+	.articles-container > div {
+		padding-top: 5em;
+		min-width: 22.5em;
+	}
+
+	.articles-container > article {
+		grid-template-rows: 15rem 15rem auto auto 4rem auto 0.6rem 1.1rem;
+		width: 22.5em;
+		min-width: 22.5em;
+	}
+}
+
+/* Voor de article's direct in de .index genest */
+.index > article {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: 1.5em;
+	align-items: center;
+	margin: 2.5em 1.5em;
+}
+
+.index > article h2 {
+	order: 2;
+	margin-top: 0.5rem;
+}
+
+.index > article h3 {
+	order: 1;
+	margin-top: 1.5rem;
+}
+
+.index > article img {
+	width: 100%;
+	max-height: 25em;
+	object-fit: cover;
+	object-position: top center;
+	grid-row: 1 / span 5;
+    order: 0;
+}
+
+.index > article p {
+	order: 3;
+	margin-top: 1em;
+	line-height: 1.5em;
+	color: var(--color-secondary-text-gray);
+}
+
+.index > article a {
+	display: inline-block;
+	margin-top: 1.5em;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	color: var(--color-text-black);
+	font-weight: 400;
+	font-size: 0.75rem;
+	letter-spacing: 0.1rem;
+	border: 1px solid rgba(26, 25, 25, 0.16);
+	background-color: transparent;
+	width: fit-content;
+	transition: color 0.2s ease, border 0.2s ease, background-color 0.2s ease;
+}
+
+.index > article a:hover {
+	color: var(--color-text-white);
+	border: 1px solid #1a1919;
+	background-color: #1a1919;
+	transition: color 0.2s ease, border 0.2s ease, background-color 0.2s ease;
+}
+
+/* Section Ontdek Rituals*/
+.index section:nth-of-type(3) {
+	margin: 5em 0;
+}
+
+.index section:nth-of-type(3) nav {
+	position: relative;
+	height: 4.5rem;
+}
+
+.index section:nth-of-type(3) nav ul {
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 1rem 0;
+	list-style: none;
+    overflow: hidden;
+    cursor: grab;
+	height: 4rem;
+	mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.index section:nth-of-type(3) nav ul.is-dragging {
+    cursor: grabbing;
+}
+
+.index section:nth-of-type(3) nav ul li {
+    position: absolute;
+    left: 0;
+	top: 50%;
+	transform-origin: left center;
+    will-change: transform;
+}
+
+.index section:nth-of-type(3) nav ul li button {
+	border: none;
+	background: none;
+	font-family: var(--font-prices-buttons);
+	color: var(--color-text-black);
+	font-size: 1.75rem;
+	cursor: pointer;
+	opacity: 0.3;
+	margin: 0 2rem;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.index section:nth-of-type(3) nav ul li.active button,
+.index section:nth-of-type(3) nav ul li:hover button {
+    opacity: 1;
+}
+
+.index section:nth-of-type(3) nav ul li.active button {
+    border-bottom: 1px solid #000000;
+}
+
+.index section:nth-of-type(3) nav > button {
+	position: absolute;
+	z-index: 10;
+	border: none;
+	background: none;
+	cursor: pointer;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.index section:nth-of-type(3) nav > button svg {
+	fill: none;
+	stroke: #000000;
+	stroke-linecap: round;
+	stroke-miterlimit: 10;
+	stroke-width: 3px;
+	height: 1.25rem;
+}
+
+.index section:nth-of-type(3) nav > button:first-of-type{
+	left: 1.5em;
+}
+
+.index section:nth-of-type(3) nav > button:last-of-type{
+	right: 1.5em;
+}
+
+.index section:nth-of-type(3) h3 {
+	margin: 0 1.5em;
+	text-align: center;
+}
+
+.index section:nth-of-type(3) > ul {
+	display: grid;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.index section:nth-of-type(3) > ul::-webkit-scrollbar {
+	display: none;
+}
+
+.index section:nth-of-type(3) > ul li {
+	display: flex;
+	flex-direction: column;
+	grid-area:  1 / 1;
+	width: 100%;
+	list-style: none;
+	gap: 0.1rem;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.index section:nth-of-type(3) > ul li.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.index section:nth-of-type(3) > ul li a {
+	position: relative;
+	width: 100%;
+	height: 20em;
+	overflow: hidden;
+}
+
+.index section:nth-of-type(3) > ul li a img {
+	width: 100%;
+	height: 20em;
+	object-fit: cover;
+	transform: scale(1);
+	transition: transform 0.3s ease;
+}
+
+.index section:nth-of-type(3) > ul li a:hover img {
+	transform: scale(1.05);
+	transition: transform 0.3s ease;
+}
+
+.index section:nth-of-type(3) > ul li a section {
+	position: absolute;
+	bottom: 1.5em;
+	left: 1.5em;
+	color: var(--color-text-white);
+}
+
+.index section:nth-of-type(3) > ul li a section h4 {
+	font-size: 1.2rem;
+	font-weight: 500;
+	margin-bottom: 0.7rem;
+}
+
+.index section:nth-of-type(3) > ul li a section p {
+	display: flex;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.1rem;
+}
+
+.index section:nth-of-type(3) > ul li a section p svg {
+	height: 0.7rem;
+	margin-left: 0.5rem;
+	fill: none;
+	stroke: var(--color-icon-white);
+	stroke-linecap: round;
+	stroke-miterlimit: 10;
+	stroke-width: 2px;
+}
+
+@media (min-width: 768px) {
+	.index section:nth-of-type(3) {
+		padding: 0 1.5em;
+	}
+
+	.index section:nth-of-type(3) nav ul li button {
+		font-size: 2rem;
+		margin: 0 2.5rem;
+	}
+
+	.index section:nth-of-type(3) > ul li {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		gap: 0.2rem;
+	}
+
+	.index section:nth-of-type(3) > ul li a:first-of-type {
+		grid-row: 1 / 2;
+		grid-column: 1 / 4;
+	}
+
+	.index section:nth-of-type(3) > ul li a:nth-of-type(2) {
+		grid-row: 1 / 2;
+		grid-column: 4 / 6;
+	}
+
+	.index section:nth-of-type(3) > ul li a:nth-of-type(3) {
+		grid-row: 2 / 3;
+		grid-column: 1 / 3;
+	}
+
+	.index section:nth-of-type(3) > ul li a:last-of-type {
+		grid-row: 2 / 3;
+		grid-column: 3 / 6;
+	}
+
+	.index section:nth-of-type(3) > ul li a {
+		height: 25em;
+	}
+
+	.index section:nth-of-type(3) > ul li a img {
+		height: 25em;
+	}
+}
+
+@media (min-width: 1024px) {
+	.index section:nth-of-type(3) > ul li {
+		gap: 0.3rem;
+	}
+	
+	.index section:nth-of-type(3) nav ul li button {
+		font-size: 2.25rem;
+		margin: 0 3rem;
+	}
+
+	.index section:nth-of-type(3) > ul li a {
+		height: 30em;
+	}
+
+	.index section:nth-of-type(3) > ul li a img {
+		height: 30em;
+	}
+}
+
+/* Section Bekroonde Producten*/
+.index section:nth-of-type(4) {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1em;
+	padding: 0 1.5rem;
+}
+
+.index section:nth-of-type(4) div:first-of-type {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.index section:nth-of-type(4) div:first-of-type h2 {
+	font-size: 1.3rem;
+	margin: 0.5rem 0;
+}
+
+.index section:nth-of-type(4) div:first-of-type h2,
+.index section:nth-of-type(4) div:first-of-type h3 {
+	text-align: center;
+}
+
+.index section:nth-of-type(4) > div:last-of-type {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 2em;
+}
+
+.index section:nth-of-type(4) > div:last-of-type article {
+	display: flex;
+	gap: 1rem;
+	width: 8em;
+	flex-direction: column;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+.index section:nth-of-type(4) div article h4 {
+	order: 1;
+	text-align: center;
+	font-size: 0.8rem;
+	font-weight: 400;
+}
+
+.index section:nth-of-type(4) div article img {
+	order: 0;
+	height: 5rem;
+	width: 5rem;
+}
+
+/* Section6 over Rituals */
+.index section:nth-of-type(6) {
+	display: flex;
+	flex-direction: column;
+	padding: 3rem 1.5rem;
+	align-items: center;
+}
+
+.index section:nth-of-type(6) > h2 {
+	order: 1;
+	margin-bottom: 1.5rem;
+}
+
+.index section:nth-of-type(6) > h3 {
+	order: 0;
+}
+
+.index section:nth-of-type(6) ul {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.6rem;
+	order: 2;
+	padding: 0 1.5em;
+	width: calc(100% + 3rem);
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+ 	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scroll-padding: 0 1.5rem;
+	list-style: none;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.index section:nth-of-type(6) ul::-webkit-scrollbar {
+	display: none;
+}
+
+.index section:nth-of-type(6) ul.scrolling {
+ 	scroll-snap-type: none;
+}
+
+.index section:nth-of-type(6) ul li {
+	flex: 0 0 calc(100vw - 3rem);
+	overflow: visible;
+	scroll-snap-align: start;
+}
+
+.index section:nth-of-type(6) ul li article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+} 
+
+.index section:nth-of-type(6) ul li article h2 {
+	order: 3;
+	font-size: 1.3rem;
+}
+
+.index section:nth-of-type(6) ul li article h3 {
+	order: 1;
+	margin-top: 1.5rem;
+}
+
+.index section:nth-of-type(6) ul li article svg {
+	order: 2;
+	width: 1.5rem;
+	padding: 1rem 0;
+}
+
+.index section:nth-of-type(6) ul li article svg line {
+	stroke: var(--color-small-titles-darkbeige);
+	stroke-linecap: round;
+	stroke-miterlimit: 10;
+	stroke-width: 4px;
+}
+
+.index section:nth-of-type(6) ul li article img {
+	order: 0;
+	width: 100%;
+	height: 29em;
+	object-fit: cover;
+}
+
+.index section:nth-of-type(6) ul li article p {
+	order: 4;
+	color: var(--color-secondary-text-lightgray);
+	padding: 1rem;
+	line-height: 1.5rem;
+	text-align: center;
+	font-size: 0.9rem;
+}
+
+.index section:nth-of-type(6) ul li article a {
+	order: 5;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	border: 1px solid rgba(26, 25, 25, 0.16);
+	background-color: transparent;
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	letter-spacing: 0.1rem;
+	color: var(--color-text-black);
+	font-weight: 600;
+}
+
+.index section:nth-of-type(6) ul li article a:hover {
+	background-color: #1a1919;
+	color: var(--color-text-white);
+}
+
+@media (min-width: 768px) {
+	.index section:nth-of-type(6) ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+/* Laatste element van de .index (p) */
+.index > p {
+	padding: 1rem 1.5rem;
+	font-size: 0.8rem;
+	font-style: italic;
+	text-align: center;
+	background: var(--color-secondary-light-background);
+}
+
+.index > p a {
+	color: var(--color-small-titles-darkbeige);
+}
+
+.index > p a:hover {
+	text-decoration: none;
+}
+
+	/********************************/
+	/* MAIN, Adventpagina, (Advent) */
+	/********************************/
+
+.advent h2, .advent p {
+	color: var(--color-text-white);
+}
+
+.advent h3 {
+	color: var(--color-lightbrown-darkbg);
+}
+
+	/* Eerste sectie */
+.advent section:first-of-type {
+	position: relative;
+	background: none;
+}
+
+.advent section:first-of-type div:first-of-type {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 3rem 3rem 1rem;
+}
+
+.advent section:first-of-type div:first-of-type h1 {
+	order: 1;
+	text-align: center;
+	color: var(--color-text-white);
+	margin: 0 1rem;
+}
+
+.advent section:first-of-type div:first-of-type h2 {
+	order: 0;
+	font-size: 2rem;
+	line-height: normal;
+}
+
+.advent section:first-of-type > h3 {
+	text-align: center;
+	color: #A88C77;
+}
+
+.advent section:first-of-type > p {
+	text-align: center;
+	margin: 1rem 3rem 1rem;
+	font-family: var(--font-prices-buttons);
+}
+
+.advent section:first-of-type div:last-of-type {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.5rem;
+	padding: 5rem 1.5rem 0;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scroll-padding: 0 1.5rem;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.advent section:first-of-type div:last-of-type::-webkit-scrollbar {
+	display: none;
+}
+
+.advent section:first-of-type div:last-of-type.scrolling {
+ 	scroll-snap-type: none;
+}
+
+.advent section:first-of-type div:last-of-type article {
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 calc(100vw - 3rem);
+	align-items: center;
+	scroll-snap-align: start;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	background: rgba(255, 255, 255, 0.150);
+	transform: translateY(0);
+	transition: transform 0.3s ease;
+}
+
+.advent section:first-of-type div:last-of-type article:hover {
+	transform: translateY(-1rem);
+	transition: transform 0.3s ease;
+}
+
+.advent section:first-of-type div:last-of-type article h2 {
+	text-align: center;
+	padding: 0.5rem 0;
+	order: 1;
+}
+
+.advent section:first-of-type div:last-of-type article h3 {
+	color: #A88C77;
+	
+	order: 0;
+}
+
+.advent section:first-of-type div:last-of-type article img {
+	width: clamp(15em, 100%, 25em);
+	margin-top: -5rem;
+	order: -1;
+	object-fit: cover;
+	padding: 0 1.5rem;
+}
+
+.advent section:first-of-type div:last-of-type article .product-badge {
+	position: absolute;
+	top: 2rem;
+	left: 0;
+	color: var(--color-text-black);
+	z-index: 5;
+}
+
+.advent section:first-of-type div:last-of-type article p:nth-of-type(2) {
+	order: 2;
+}
+
+.advent section:first-of-type div:last-of-type article p:nth-of-type(3) {
+	padding: 1.5rem 0;
+	font-family: var(--font-prices-buttons);
+	font-size: 1.2rem;
+	order: 3;
+}
+
+.advent section:first-of-type div:last-of-type article button {
+	display: inline-block;
+	padding: 1rem 3rem;
+	border: none;
+	background: var(--color-light-background-white);
+	color: var(--color-text-black);
+	font-size: 0.7rem;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-weight: 500;
+	order: 4;
+	z-index: 15;
+}
+
+.advent section:first-of-type div:last-of-type article p:nth-of-type(4) {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 0.7rem;
+	color: var(--color-dark-gray);
+	padding: 1.7rem 0;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	order: 5;
+}
+
+.advent section:first-of-type article p > svg {
+	height: 0.75rem;
+	stroke: var(--color-dark-gray);
+	stroke-linecap: round;
+	stroke-linejoin: miter;
+	stroke-miterlimit: 10;
+	stroke-width: 3px;
+	flex-shrink: 0;
+	fill: none;
+}
+
+.advent section:first-of-type div:last-of-type article a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.advent section:first-of-type > video {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	top: 0;
+	z-index: -1;
+}
+
+@media (min-width: 768px) {
+	.advent section:first-of-type div:last-of-type {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+/* Tweede sectie, eerste article */
+.advent > article:first-of-type {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1.5rem 1.5rem 3rem;
+	background-color: var(--color-background-christmas-darkred);
+}
+
+.advent > article:first-of-type > div:first-of-type {
+	display: flex;
+	flex: 0 0 100%;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem 0;
+}
+
+.advent > article:first-of-type > div:first-of-type h2 {
+	padding: 0.5rem 0;
+}
+
+.advent > article:first-of-type > img {
+	flex: 4 1 20rem;
+	width: 100%;
+	max-height: 34em;
+	object-fit: cover;
+}
+
+.advent > article:first-of-type > div:last-of-type {
+	display: flex;
+	flex: 2 1 15em;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 1rem;
+}
+
+.advent > article:first-of-type > div:last-of-type {
+	min-width: 0;
+}
+
+.advent > article:first-of-type > div:last-of-type img {
+	height: 8rem;
+	width: 16em;
+	object-fit: cover;
+}
+
+.advent > article:first-of-type > div:last-of-type h4 {
+	color: var(--color-text-white);
+	text-align: center;
+	font-size: 1.5rem;
+	padding: 0.5rem 0;
+}
+
+.advent > article:first-of-type > div:last-of-type p:first-of-type {
+	text-align: center;
+	font-size: 0.9rem;
+	line-height: 1.5rem;
+}
+
+.advent > article:first-of-type > div:last-of-type p.product-badge {
+	color: var(--color-text-black);
+	margin: 0.5rem;
+}
+
+.advent > article:first-of-type > div:last-of-type p:nth-of-type(3) {
+	font-family: var(--font-prices-buttons);
+	margin: 0.75rem 0;
+}
+
+.advent > article:first-of-type > div:last-of-type p:nth-of-type(4) {
+	font-size: 0.8rem;
+}
+
+.advent > article:first-of-type > div:last-of-type button {
+	font-size: 0.7rem;
+	letter-spacing: 0.1rem;
+	font-weight: 600;
+	padding: 1rem 2rem;
+	margin: 1.2rem;
+	border: 1px solid white;
+	background: transparent;
+	color: var(--color-text-white);
+	border-radius: 0;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.advent > article:first-of-type > div:last-of-type a {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	text-decoration: none;
+	color: var(--color-text-white);
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	letter-spacing: 0.1rem;
+}
+
+.advent > article:first-of-type > div:last-of-type a svg {
+	height: 0.75rem;
+	stroke: var(--color-text-white);
+	stroke-linecap: round;
+	stroke-linejoin: miter;
+	stroke-miterlimit: 10;
+	stroke-width: 3px;
+	flex-shrink: 0;
+	fill: none;
+}
+
+/* Derde-vierde sectie, tweede&derde article */
+.advent > article:nth-of-type(2), .advent > article:nth-of-type(3) {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	padding: 1.5rem;
+	background: var(--color-background-christmas-red);
+}
+
+.advent > article:nth-of-type(2) div, .advent > article:nth-of-type(3) div {
+	display: flex;
+	flex: 2 1 15em;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.advent > article:nth-of-type(3) {
+	background: var(--color-background-christmas-darkred);
+}
+
+.advent > article:nth-of-type(2) div h2, .advent > article:nth-of-type(3) div h2 {
+	order: 0;
+}
+
+.advent > article:nth-of-type(3) div h2 {
+	margin-top: 1rem;
+}
+
+.advent > article:nth-of-type(2) div p, .advent > article:nth-of-type(3) div p {
+	line-height: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.advent > article:nth-of-type(2) div a, .advent > article:nth-of-type(3) div a {
+	padding: 1rem 2rem;
+	margin: 1rem 0 1.5rem;
+	border: 1px solid white;
+	text-decoration: none;
+	color: var(--color-text-white);
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	letter-spacing: 0.1rem;
+	width: fit-content;
+}
+
+.advent > article:nth-of-type(2) div a:hover, .advent > article:nth-of-type(3) div a:hover {
+	background: var(--color-dark-gray);
+	border: 1px solid var(--color-dark-gray);
+}
+
+.advent > article:nth-of-type(2) img, .advent > article:nth-of-type(3) img {
+	flex: 4 1 20rem;
+	height: 25em;
+	width: 100%;
+	object-fit: cover;
+}
+
+.advent > article:nth-of-type(3) img {
+	order: -1;
+}
+
+/* vijfde sectie, tweede section Antwoord van onze experts */
+.advent > section:nth-of-type(2) {
+	background: var(--color-background-christmas-darkred);
+	padding: 1.5rem clamp(1.5rem, 7vw, 10rem);
+}
+
+.advent > section:nth-of-type(2) h4 {
+	color: var(--color-text-white);
+	font-size: 1.5rem;
+	font-weight: 400;
+	padding: 1.1rem 0;
+}
+
+.advent > section:nth-of-type(2) ul {
+	list-style: none;
+}
+
+.advent > section:nth-of-type(2) ul > li {
+	border-top: 0.05rem solid rgba(255, 255, 255, 0.2);
+}
+
+.advent > section:nth-of-type(2) ul > li:last-of-type {
+	border-bottom: 0.05rem solid rgba(255, 255, 255, 0.2);
+}
+
+.advent > section:nth-of-type(2) ul > li button {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	font-family: var(--font-prices-buttons);
+	font-size: 1.1rem;
+	text-align: left;
+	color: var(--color-text-white);
+	width: 100%;
+	background: transparent;
+	border: none;
+	padding: 1rem 0;
+	cursor: pointer;
+}
+
+.advent > section:nth-of-type(2) ul > li button svg {
+	height: 1.5rem;
+	width: 1.5rem;
+	margin-left: auto;
+	flex-shrink: 0;
+}
+
+.advent > section:nth-of-type(2) ul > li button svg line {
+	fill: none;
+	stroke: #ffffff87;
+	stroke-linecap: round;
+	stroke-miterlimit: 10;
+	stroke-width: 3px;
+}
+
+.advent > section:nth-of-type(2) ul > li p {
+	display: none;
+	height: 0;
+	visibility: hidden;
+	padding-bottom: 0;
+	margin-right: 2rem;
+	line-height: 1.5rem;
+}
+
+.advent > section:nth-of-type(2) ul > li p.open {
+	display: block;
+	height: auto;
+	visibility: visible;
+	padding-bottom: 1rem;
+}
+
+/* zesde sectie, derde section Adventskalender Informatie */
+.advent > section:nth-of-type(3) {
+	column-width: 23em;
+	column-gap: 5%;
+	position: relative;
+	background: var(--color-background-christmas-red);
+	padding: 1.5rem 1.5rem 0;
+	height: 11em;
+	overflow: hidden;
+}
+
+.advent > section:nth-of-type(3)::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: linear-gradient(to bottom, rgba(0,0,0,0), var(--color-background-christmas-red));
+}
+
+.advent > section:nth-of-type(3).open::before {
+	display: none;
+}
+
+.advent > section:nth-of-type(3).open {
+	height: auto;
+	padding-bottom: 8rem;
+}
+
+.advent > section:nth-of-type(3) h2 {
+	height: 0;
+	visibility: hidden;
+}
+
+.advent > section:nth-of-type(3) article {
+	width: 100%;
+}
+
+.advent > section:nth-of-type(3).open article {
+	break-inside: avoid;
+	display: inline-block;
+}
+
+.advent > section:nth-of-type(3) article h4 {
+	color: var(--color-text-white);
+	font-size: 1.1rem;
+	font-weight: 400;
+	margin-top: 0.9rem;
+}
+
+.advent > section:nth-of-type(3) article p {
+	font-size: 0.75rem;
+	line-height: 1.1rem;
+	padding: 0.7rem 0;
+}
+
+.advent > section:nth-of-type(3) article ul {
+	line-height: 1.1rem;
+	padding: 0.7rem 0;
+}
+
+.advent > section:nth-of-type(3) article ul li {
+	color: var(--color-text-white);
+	font-size: 0.75rem;
+	line-height: 1.1rem;
+	margin-left: 1rem;
+}
+
+.advent > section:nth-of-type(3) button {
+	position: absolute;
+	left: 50%;
+	bottom: 2rem;
+	transform: translateX(-50%);
+	padding: 1.3rem 2rem;
+	margin: 1rem 0;
+	width: fit-content;
+	background: var(--color-text-white);
+	border: none;
+	color: var(--color-text-red);
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	margin-top: 1rem;
+}
+
+/* zevende sectie, vierde section Hoe kunnen we je helpen? */
+.advent > section:nth-of-type(4) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: var(--color-background-christmas-darkred);
+	padding: 1rem 1.5rem 0;
+}
+
+.advent > section:nth-of-type(4) h4 {
+	color: var(--color-text-white);
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+
+.advent > section:nth-of-type(4) svg {
+	order: -1;
+	fill: var(--color-small-titles-beige-darkbg);
+	width: 3rem;
+	margin: 1rem;
+}
+
+.advent > section:nth-of-type(4) p:first-of-type {
+	margin: 1rem 0 2rem;
+	text-align: center;
+	font-size: 0.9rem;
+	line-height: 1.5rem;
+}
+
+.advent > section:nth-of-type(4) p:first-of-type a {
+	color: var(--color-small-titles-beige-darkbg);
+}
+
+.advent > section:nth-of-type(4) p:last-of-type {
+	text-align: center;
+	font-size: 0.8rem;
+	font-style: italic;
+	line-height: 1.2rem;
+	padding: 0.8rem 0;
+}
+
+	/**************/
+	/*** Footer ***/
+	/**************/
+footer {
+	background-color: var(--color-dark-gray);
+}
+
+footer h3 {
+	color: var(--color-small-titles-beige-darkbg);
+	margin-bottom: 1rem;
+}
+
+/* sectie blijf op de hoogte */
+footer > section:first-of-type {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: var(--color-gray);
+	padding: 2.5rem var(--spacing-footer-left-right);
+}
+
+footer > section:first-of-type h2,
+footer > section:first-of-type p {
+	order: 0;
+	width: 14.4rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	color: var(--color-text-white);
+}
+
+footer > section:first-of-type p {
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+
+footer > section:first-of-type p a {
+	color: var(--color-small-titles-beige-darkbg);
+}
+
+footer > section:first-of-type p a:hover {
+	text-decoration: none;
+}
+
+footer > section:first-of-type form {
+	display: flex;
+	flex-direction: column;
+	
+	width: 100%;
+}
+
+footer > section:first-of-type form label {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+footer > section:first-of-type form input {
+	font-family: var(--font-body);
+	background: var(--color-dark-gray);
+	color: var(--color-text-white);
+	padding: 0.9rem 1rem;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 30em;
+	border: 1px solid transparent;
+	font-size: 1rem;
+	font-style: italic;
+}
+
+footer > section:first-of-type form input:hover {
+	border-color: #555555;
+}
+
+footer > section:first-of-type form input::placeholder {
+	color: var(--color-text-white);
+}
+
+footer > section:first-of-type form button {
+	padding: 1rem 2rem;
+	border: none;
+	background: var(--color-light-background-white);
+	color: var(--color-text-black);
+	font-size: 0.7rem;
+	line-height: 1rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.15rem;
+	width: fit-content;
+	margin: 1.5rem auto 0.5rem;
+	cursor: pointer;
+}
+
+footer > section:first-of-type form button:hover {
+	background: #d8d8d8;
+}
+
+/* ul klantenservice, waar kun je ons vinden, ons merk */
+footer > ul:first-of-type {
+	padding: 1.5rem var(--spacing-footer-left-right);
+	list-style: none;
+}
+
+footer > ul:first-of-type > li {
+	border-top: 0.05rem solid #414141;
+}
+
+footer > ul:first-of-type > li:last-of-type {
+	border-bottom: 0.05rem solid #414141;
+}
+
+footer > ul:first-of-type > li button {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: var(--font-prices-buttons);
+	font-size: 1.1rem;
+	color: var(--color-text-white);
+	width: 100%;
+	background: transparent;
+	border: none;
+	padding: 1rem 0;
+	cursor: pointer;
+}
+
+footer > ul:first-of-type > li button svg {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+footer > ul:first-of-type > li button svg line {
+	fill: none;
+	stroke: #ffffff87;
+	stroke-linecap: round;
+	stroke-miterlimit: 10;
+	stroke-width: 3px;
+}
+
+footer > ul:first-of-type > li button svg line:last-of-type {
+	transform-origin: 20.5px 20.5px;
+	transform: rotate(0deg);
+	transition: transform 0.3s ease;
+}
+
+footer > ul:first-of-type > li.is-open button svg line:last-of-type {
+	transform-origin: 20.5px 20.5px;
+	transform: rotate(270deg);
+	transition: transform 0.3s ease;
+}
+
+footer > ul:first-of-type > li ul {
+	list-style: none;
+	overflow: hidden;
+	max-height: 0;
+	visibility: hidden;
+	transition: max-height 0.2s ease, visibility 0.2s ease;
+}
+
+footer > ul:first-of-type > li ul li {
+	margin-bottom: 0.7rem;
+	max-height: 0;
+	transition: max-height 0.2s ease;
+}
+
+footer > ul:first-of-type > li.is-open ul {
+	max-height: 30em;
+	visibility: visible;
+	transition: max-height 0.5s ease, visibility 0.5s ease;
+}
+
+footer > ul:first-of-type > li.is-open ul li {
+	max-height: 5em;
+	transition: max-height 0.5s ease;
+}
+
+footer > ul:first-of-type > li ul li:last-of-type {
+	margin-bottom: 1.4rem;
+}
+
+footer > ul:first-of-type > li ul li a {
+	text-decoration: none;
+	color: var(--color-secondary-text-lightgray-darkbg);
+	font-size: 0.9rem;
+}
+
+/* sectie Rituals App */
+footer > div:first-of-type {
+	padding: 1rem var(--spacing-footer-left-right);
+}
+
+footer > div:first-of-type section:first-of-type {
+	padding: 1rem 0;
+}
+
+footer > div:first-of-type section:first-of-type a {
+	margin-right: 0.8rem;
+}
+
+footer > div:first-of-type section:first-of-type a img {
+	width: 10rem;
+	height: 3rem;
+}
+
+/* Sectie Kies je land en je taal */
+footer > div:first-of-type section:nth-of-type(2) {
+	padding: 1.5rem 0;
+}
+
+footer > div:first-of-type section:nth-of-type(2) label {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: var(--color-secondary-text-lightgray-darkbg);
+	font-size: 0.9rem;
+}
+
+footer > div:first-of-type section:nth-of-type(2) select {
+	width: 100%;
+	margin-bottom: 1.2rem;
+	font-size: 0.9rem;
+	background: var(--color-gray);
+	border: none;
+	padding: 1rem;
+	color: var(--color-text-white);
+	letter-spacing: 0.1rem;
+	font-weight: 300;
+}
+
+footer > div:first-of-type section:nth-of-type(2) a {
+	display: inline-block;
+	font-size: 0.8rem;
+	color: var(--color-text-white);
+	padding: 1rem 2rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	border: 1px solid rgba(255, 255, 255, 0.19);
+}
+
+footer > div:first-of-type section:nth-of-type(2) a:hover {
+	background: var(--color-secondary-text-gray);
+}
+
+/* sectie bel onze helpdesk */
+footer > div:first-of-type section:nth-of-type(3) {
+	display: grid;
+	grid-template-columns: 10rem 10rem;
+	padding: 1.5rem 0;
+}
+
+footer > div:first-of-type section:nth-of-type(3) p {
+	color: var(--color-secondary-text-lightgray-darkbg);
+	margin-bottom: 1.5rem;
+}
+
+footer > div:first-of-type section:nth-of-type(3) h3 {
+	grid-row: 1 / 2;
+	grid-column: 1 / 3;
+}
+
+footer > div:first-of-type section:nth-of-type(3) p:first-of-type {
+	grid-row: 2 / 3;
+	grid-column: 1 / 2;
+}
+
+footer > div:first-of-type section:nth-of-type(3) p:nth-of-type(2) {
+	grid-row: 2 / 3;
+	grid-column: 2 / 3;
+}
+
+footer > div:first-of-type section:nth-of-type(3) p:nth-of-type(3) {
+	grid-row: 3 / 4;
+	grid-column: 1 / 2;
+}
+
+footer > div:first-of-type section:nth-of-type(3) p:nth-of-type(4) {
+	grid-row: 3 / 4;
+	grid-column: 2 / 3;
+}
+
+footer > div:first-of-type section:nth-of-type(3) p:nth-of-type(5) {
+	grid-row: 4 / 5;
+	grid-column: 1 / 2;
+	margin-bottom: 0;
+}
+
+footer > div:first-of-type section:nth-of-type(3) p:last-of-type {
+	grid-row: 4 / 5;
+	grid-column: 2 / 3;
+	margin-bottom: 0;
+}
+
+/* sectie socials */
+footer > div:first-of-type section:nth-of-type(4) div {
+	display: flex;
+	gap: 1rem;
+}
+
+footer > div:first-of-type section:nth-of-type(4) h4 {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+footer > div:first-of-type section:nth-of-type(4) a img {
+	height: 2.5rem;
+	width: 2.5rem;
+}
+
+/* Onder socials img's */
+footer > div:first-of-type > div {
+	padding: 1.5rem 0;
+}
+
+footer > div:first-of-type > div img {
+	height: 4rem;
+	width: auto;
+	margin-right: 1.5rem;
+}
+
+/* Sectie Betaalmogelijkheden */
+footer > section:nth-of-type(2) {
+	padding: 1.5rem var(--spacing-footer-left-right);
+	background: var(--color-light-background-white);
+}
+
+footer > section:nth-of-type(2) h4 {
+	height: 0;
+	visibility: hidden;
+}
+
+footer > section:nth-of-type(2) div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.3rem;
+	padding: 0 1.5rem;
+}
+
+footer > section:nth-of-type(2) div img {
+	width: 3rem;
+}
+
+/* Einde footer */
+footer > div:last-of-type {
+	background: var(--color-light-background-white);
+	padding: 0 0 2rem;
+}
+
+footer > div:last-of-type p {
+	font-size: 0.9rem;
+	text-align: center;
+	margin-bottom: 0.7rem;
+	color: var(--color-secondary-text-lightgray);
+}
+
+footer > div:last-of-type ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	list-style: none;
+}
+
+footer > div:last-of-type ul li {
+	display: flex;
+	align-items: center;
+}
+
+footer > div:last-of-type ul li:not(:last-child)::after {
+	content: "·";
+	margin-left: 0.5rem;
+}
+
+footer > div:last-of-type ul li a {
+	text-decoration: none;
+	color: var(--color-secondary-text-lightgray);
+}
+
+@media (min-width: 768px) {
+	/* sectie blijf op de hoogte */
+	footer > section:first-of-type h2,
+	footer > section:first-of-type p {
+		width: 30rem;
+	}
+
+	/* ul klantenservice, waar kun je ons vinden, ons merk */
+
+
+	/* div container voor deel onder algemene informatie */
+	footer > div:first-of-type {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	footer > div:first-of-type section:first-of-type {
+		grid-column: 1 / 2;
+		display: flex;
+		flex-direction: column;
+	}
+
+	footer > div:first-of-type section:nth-of-type(2) {
+		grid-column: 2 / 3;
+		grid-row: 1 / 3;
+	}
+
+	footer > div:first-of-type section:nth-of-type(3) {
+		grid-column: 1 / 2;
+	}
+
+	footer > div:first-of-type section:nth-of-type(4) {
+		grid-column: 1 / 2;
+		display: flex;
+		align-items: end;
+	}
+
+	footer > div:first-of-type > div {
+		grid-column: 2 / 3;
+	}
+
+	/* sectie Rituals App */
+	footer > div:first-of-type section:first-of-type {
+		padding: 0;
+	}
+
+	/* Sectie Kies je land en je taal */
+	footer > div:first-of-type section:nth-of-type(2) {
+		padding: 0;
+	}
+
+	/* sectie bel onze helpdesk */
+	footer > div:first-of-type section:nth-of-type(3) {
+		padding: 0;
+	}
+
+	/* sectie socials */
+
+
+	/* Onder socials img's */
+	footer > div:first-of-type > div {
+		padding: 0;
+	}
+
+	/* Sectie Betaalmogelijkheden */
+
+
+	/* Einde footer */
+
+}
