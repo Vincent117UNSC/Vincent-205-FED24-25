@@ -802,7 +802,7 @@ header div > div nav section ul li {
 }
 
 header div > div nav section ul li a,
-header div > div nav section h4  {
+header div > div nav section h3  {
 	color: var(--color-secondary-text-gray);
 	font-family: "Scala Sans Pro Light";
 	text-decoration: none;
@@ -813,12 +813,13 @@ header div > div nav section ul li a:hover {
 	text-decoration: underline;
 }
 
-header div > div nav section h4 {
+header div > div nav section h3 {
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	font-size: 0.8em;
 	font-weight: 200;
 	margin: 0.5em 0 1.5em;
+	padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -2492,11 +2493,12 @@ header div > div nav section h4 {
 	padding: 1.5rem clamp(1.5rem, 7vw, 10rem);
 }
 
-.advent > section:nth-of-type(2) h4 {
+.advent > section:nth-of-type(2) h3 {
 	color: var(--color-text-white);
 	font-size: 1.5rem;
 	font-weight: 400;
 	padding: 1.1rem 0;
+	text-transform: none;
 }
 
 .advent > section:nth-of-type(2) ul {
@@ -2614,11 +2616,13 @@ header div > div nav section h4 {
 	display: inline-block;
 }
 
-.advent > section:nth-of-type(3) article h4 {
+.advent > section:nth-of-type(3) > article > h3 {
 	color: var(--color-text-white);
 	font-size: 1.1rem;
 	font-weight: 400;
+	letter-spacing: 0.5px;
 	margin-top: 0.9rem;
+	text-transform: none;
 }
 
 .advent > section:nth-of-type(3) article p {

@@ -1229,7 +1229,7 @@
 						</button>
 						<div>
 							<label for="zoeken"></label>
-							<input type="text" placeholder="Ik zoek...">
+							<input type="text" id="zoeken" placeholder="Ik zoek...">
 							<a href="">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 93">
 									<title>Vergrootglas voor zoeken</title>
@@ -1239,7 +1239,7 @@
 						</div>
 					</div>
 					<section>
-						<h4>Suggesties</h4>
+						<h3>Suggesties</h3>
 						<ul>
 							<li><a href="">20% korting op refills</a></li>
 							<li><a href="">Speciale Promotie: Gezichtsreiniging</a></li>
@@ -2244,9 +2244,9 @@
 		<section>
 			<h2>Blijf op de hoogte</h2>
 			<p>Meld je aan voor het laatste Rituals-nieuws en ontvang exclusieve aanbiedingen. Rituals gebruikt je persoonlijke gegevens zoals beschreven in ons <a href="">Privacybeleid</a>.</p>
-			<form action="">
+			<form>
 				<label for="e-mail">E-mailadres</label>
-				<input type="text" placeholder="E-mailadres">
+				<input type="text" id="e-mail" placeholder="E-mailadres"> <!--De id zit hier alleen zodat de validator het niet ziet als een fout-->
 				<button>Aanmelden</button>
 			</form>
 		</section>
@@ -2321,7 +2321,7 @@
 			<section>
 				<h3>Kies je land en je taal</h3>
 				<label for="Land">Land</label>
-				<select name="Land">
+				<select name="Land" id="Land"> <!--De id zit hier alleen zodat de validator het niet ziet als een fout-->
 					<option value="BE">België (Belgium)</option>
 					<option value="BG">Bulgarije (Bulgaria)</option>
 					<option value="DK">Denemarken (Denmark)</option>
@@ -2338,7 +2338,7 @@
 					<option value="LV">Letland (Latvia)</option>
 					<option value="LT">Litouwen (Lithuania)</option>
 					<option value="LU">Luxemburg (Luxembourg)</option>
-					<option value="NL">Nederland (Netherlands)</option>
+					<option value="NL" selected>Nederland (Netherlands)</option>
 					<option value="NO">Noorwegen (Norway)</option>
 					<option value="AT">Oostenrijk (Austria)</option>
 					<option value="PL">Polen (Poland)</option>
@@ -2351,9 +2351,9 @@
 					<option value="CH">Zwitserland (Switzerland)</option>
 				</select>
 				<label for="Taal">Taal</label>
-				<select name="Taal">
+				<select name="Taal" id="Taal"> <!--De id zit hier alleen zodat de validator het niet ziet als een fout-->
 					<option value="en-nl">English</option>
-					<option value="nl-nl">Nederlands</option>
+					<option value="nl-nl" selected>Nederlands</option>
 				</select>
 				<a href="">Doorgaan</a>
 			</section>

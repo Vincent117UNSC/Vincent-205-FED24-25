@@ -346,6 +346,11 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   <img src="readme-images/eindgesprek-img7-infinite-scroll2.png" width="500px" alt="Deel van de code voor de infinite scroll">
 
+  ### Afronding, Conclusie:
+  Ben nog wat verbeteringen aan het doorbrengen, zoals validatie foutjes eruit halen, annimaties toevoegen, oneffeheden eruit halen, noem maar op. Ik merk wel enorm dat ik misschien toch op teveel tegelijk gefocused heb, ik had beter per onderdeel goed af kunnen maken. Het voelt dus een beetje alsof ik wel een hoop heb, maar ook dat een hoop niet helemaal af is, op een hoop plekken zitten nog teveel ruwe rantjes aan, en sommige functie of elementen heb ik dus niet af kunnen maken.
+
+  Gelukkig denk ik wel dat ik de basis van de twee schermen en het responsiveness redelijk voor elkaar heb gekregen, al ben ik uiteindelijk toch niet heel tevreden geweest met mijn keuze voor mijn tweede pagina, ook al was deze pagina wel goed om te oefenen met responsiveness zonder @media. Maar goed, nog een uurtje verweiderd van de inlever deadline, toch echt tijd om te beginnen met alles af te ronden. Tot de volgende uitdaging.
+
 </details>
 
 
