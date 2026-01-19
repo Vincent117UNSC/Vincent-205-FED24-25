@@ -379,8 +379,10 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
       - De basis voor het inifinite scroll element op de index (home pagina).
   9. [Prepend](https://stackoverflow.com/questions/1279957/how-to-move-an-element-into-another-element)
       - Zoeken naar manieren om elementen te verplaatsen naar andere parent elementen en weer terug.
-  10. Blijkbaar ook wat chatGPT gebruikt voor het menu, onder ander het zoeken van de bijbehorende parent element, maar dat was vorig jaar, en heb mijn best gedaan deze chat terug te vinden maar geen succes.
-  11. Copilot voor de infinite scroll:
+  10. [Progress](https://stackoverflow.com/questions/42290719/custom-styling-progress-bar-in-css)
+      - Voor het stylen van de progress tag.
+  11. Blijkbaar ook wat chatGPT gebruikt voor het menu, onder ander het zoeken van de bijbehorende parent element, maar dat was vorig jaar, en heb mijn best gedaan deze chat terug te vinden maar geen succes.
+  12. Copilot voor de infinite scroll:
 </details>
 <details>
   <summary>Screenshots copilot chat</summary>

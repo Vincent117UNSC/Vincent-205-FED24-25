@@ -2541,20 +2541,33 @@ header div > div nav section h4 {
 	stroke-width: 3px;
 }
 
-.advent > section:nth-of-type(2) ul > li p {
-	display: none;
-	height: 0;
-	visibility: hidden;
-	padding-bottom: 0;
-	margin-right: 2rem;
-	line-height: 1.5rem;
+.advent > section:nth-of-type(2) ul > li button svg line:last-of-type {
+	transform-origin: 20.5px 20.5px;
+	transform: rotate(0deg);
+	transition: transform 0.3s ease;
 }
 
-.advent > section:nth-of-type(2) ul > li p.open {
-	display: block;
-	height: auto;
+.advent > section:nth-of-type(2) ul > li.is-open button svg line:last-of-type {
+	transform-origin: 20.5px 20.5px;
+	transform: rotate(270deg);
+	transition: transform 0.3s ease;
+}
+
+.advent > section:nth-of-type(2) ul > li p {
+	max-height: 0;
+	visibility: hidden;
+	padding-bottom: 0;
+	overflow: hidden;
+	margin-right: 2rem;
+	line-height: 1.5rem;
+	transition: max-height 0.2s ease, padding-bottom 0.2s ease, visibility 0.2s ease;
+}
+
+.advent > section:nth-of-type(2) ul > li.is-open p {
+	max-height: 30rem;
 	visibility: visible;
 	padding-bottom: 1rem;
+	transition: max-height 0.2s ease, padding-bottom 0.2s ease, visibility 0.2s ease;
 }
 
 /* zesde sectie, derde section Adventskalender Informatie */
