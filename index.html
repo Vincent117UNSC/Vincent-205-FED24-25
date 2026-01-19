@@ -1256,12 +1256,56 @@
 						<path d="M19.23 81.45C19.04 79.82 18.96 77.25 19.79 74.28C20.44 71.97 21.37 70.37 21.92 69.46C22.24 68.92 23.78 66.38 26.74 63.79C28.49 62.25 30.3 60.67 33.12 59.82C34.29 59.47 35.22 59.37 37.09 59.25C43.43 58.87 49.07 59.04 54.38 59.25C56.93 59.35 57.14 59.28 57.78 59.39C62.76 60.26 65.98 63.88 67.42 65.48C69.61 67.93 70.75 70.3 71.25 71.43C73 75.44 73.16 79.05 73.1 81.08M90.36 45.93C90.36 70.468 70.468 90.36 45.93 90.36C21.392 90.36 1.5 70.468 1.5 45.93C1.5 21.392 21.392 1.5 45.93 1.5C70.468 1.5 90.36 21.392 90.36 45.93ZM58.6965 36.2428C59.3941 43.2942 54.2433 49.576 47.1919 50.2736C40.1405 50.9712 33.8587 45.8205 33.1611 38.7691C32.4635 31.7177 37.6143 25.4359 44.6657 24.7383C51.7171 24.0407 57.9989 29.1914 58.6965 36.2428Z"/>
 					</svg>
 				</a>
-				<a href="">
+				<button>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81 92">
 						<title>Winkeltas icoon voor winkelwagen</title>
 						<path d="M24.4551 17.5454C24.4551 8.67535 31.6451 1.48535 40.5151 1.48535C49.3851 1.48535 56.5751 8.67535 56.5751 17.5454V42.0254M24.4451 17.5454V42.0254M7.72511 25.0554H73.2051C76.6451 25.0554 79.4451 27.8454 79.4451 31.2954V74.3454C79.4451 83.0654 72.3651 90.1354 63.6551 90.1354H17.2751C8.55511 90.1354 1.48511 83.0554 1.48511 74.3454V31.2954C1.48511 27.8554 4.27511 25.0554 7.72511 25.0554Z"/>
 					</svg>
-				</a>
+				</button>
+				<dialog class="winkelmandje">
+					<h2>Mijn winkelmandje</h2>
+					<button aria-label="Sluit winkelmandje">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.98 58.98" aria-hidden="true">
+							<title>Kruisicoon voor sluiten</title>
+							<line class="cls-1" x1="1.5" y1="57.48" x2="57.48" y2="1.5"/>
+							<line class="cls-1" x1="57.48" y1="57.48" x2="1.5" y2="1.5"/>
+						</svg>
+					</button>
+					<p>Oh, hij is leeg! Laten we er wat moois in doen</p>
+					<div>
+						<aside>
+							<p><span>Voor My Rituals members</span> Ontvang een cadeau naar keuze als je nog <span>€50,00</span> besteedt.</p>
+							<progress value="5" max="100"></progress>
+							<img src="images/winkelmandje/gift-bij-aankoop.webp" alt="Cadeau bij aankoop">
+						</aside>
+					</div>
+					<div hidden>
+						<p>1 product</p>
+						<p>Toegevoegd aan je winkelmandje</p>
+						<ul>
+							<li> <!--Voorbeeld product-->
+								<img src="images/winkelmandje/deluxe-advent-kalendar-small.webp" alt="Deluxe Advent Calendar">
+								<div>
+									<h3>The Rituals of advent</h3>
+									<h4>Deluxe Advent Calendar</h4>
+									<p>Aantal: <span>1</span></p>
+									<p>€83,93</p>
+								</div>
+							</li>
+						</ul>
+						<div>
+							<p>Bestelling Subtotaal</p>
+							<p>€83,93</p>
+						</div>
+						<div>
+							<p>Op werkdagen vóór 19:00 besteld, morgen in huis</p>
+							<div>
+								<button>Door met winkelen</button>
+								<button>Bekijk winkelwagen</button>
+							</div>
+						</div>
+					</div>
+				</dialog>
 			</div>
 		</div>
 	</header>
@@ -2363,6 +2407,7 @@
 	</footer>
 	<script defer src="scripts/script-header-footer.js"></script>
 	<script defer src="scripts/script-main-index.js"></script>
+	<script defer src="scripts/winkelmandje.js"></script>
 	<script defer src="scripts/drag-scrolling.js"></script>
 </body>
 	

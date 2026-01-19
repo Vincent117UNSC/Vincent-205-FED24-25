@@ -267,7 +267,7 @@ header div > button svg, header div > div > a svg {
 	min-width: 1.5em;
 }
 
-header > div:last-of-type > div > a {
+header > div:last-of-type > div > a, header > div:last-of-type > div > button:last-of-type {
 	text-decoration: none;
 	display: inline-flex;
 	justify-content: center;
@@ -864,6 +864,238 @@ header div > div nav section h4 {
         top: 7em;
 	}
 }
+
+					/*winkelmandje*/
+.winkelmandje {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+ 	max-width: none;
+ 	max-height: none;
+  	border: none;
+	overflow: hidden;
+	transform: translateX(100%);
+  	transition: transform 0.3s ease;
+}
+
+.winkelmandje.is-open {
+	transform: translateX(0);
+	transition: transform 0.3s ease;
+}
+
+.winkelmandje::backdrop {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.winkelmandje > h2 {
+	order: 0;
+	padding: 0 2.5rem;
+}
+
+.winkelmandje > button {
+	height: 1rem;
+	width: 1rem;
+	margin: 2.5rem;
+	order: -1;
+}
+
+.winkelmandje > button svg {
+	height: 1em;
+	stroke: black;
+	stroke-width: 3px;
+}
+
+.winkelmandje > p {
+	align-self: center;
+	color: var(--color-secondary-text-lightgray);
+	padding: 1rem 0 3rem;
+	font-size: 0.9rem;
+	letter-spacing: 0.5px;
+}
+
+.winkelmandje > div:first-of-type {
+	border-top: 1.5px solid var(--color-secondary-text-lightgray-darkbg);
+}
+
+.winkelmandje > div:first-of-type aside {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: 1rem;
+	margin: 2.5rem;
+	padding: 1rem;
+	border: 1px solid var(--color-secondary-text-lightgray-darkbg);
+}
+
+.winkelmandje > div:first-of-type aside p {
+	font-size: 0.9rem;
+	line-height: 1.4rem;
+	letter-spacing: 0.5px;
+	align-self: center;
+}
+
+.winkelmandje > div:first-of-type aside p span:first-of-type {
+	font-weight: bold;
+}
+
+.winkelmandje > div:first-of-type aside progress {
+	align-self: center;
+	width: 100%;
+	height: 0.5rem;
+	border: none;
+	background: transparent;
+}
+
+.winkelmandje > div:first-of-type aside progress::-moz-progress-bar,
+.winkelmandje > div:first-of-type aside progress::-webkit-progress-bar {
+	background: linear-gradient(to right, #816356, #DECA87);
+	border-radius: 0.25rem;
+}
+
+.winkelmandje > div:first-of-type aside img {
+	width: 4.5rem;
+	grid-row: 1 / 3;
+	grid-column: 2 /3;
+}
+
+.winkelmandje > div:nth-of-type(2) > p:first-of-type {
+	padding: 1.5rem 2.5rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > p:nth-of-type(2) {
+	padding: 0 2.5rem 0.5rem;
+	border-bottom: 1px solid var(--color-secondary-text-lightgray-darkbg);
+}
+
+.winkelmandje > div:nth-of-type(2) > ul {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	margin-bottom: 14rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > ul li {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: 1rem;
+	padding: 1rem 2.5rem;
+	border-bottom: 1px solid var(--color-secondary-text-lightgray-darkbg);
+}
+
+.winkelmandje > div:nth-of-type(2) > ul li img {
+	width: 4rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > ul li > div {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	column-gap: 1rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > ul li > div > h4 {
+	align-self: center;
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+
+.winkelmandje > div:nth-of-type(2) > ul li > div > p:first-of-type {
+	align-self: end;
+	color: var(--color-secondary-text-lightgray);
+}
+
+.winkelmandje > div:nth-of-type(2) > ul li > div > p:last-of-type {
+	justify-self: end;
+	align-self: center;
+	grid-row: 1 / 4;
+	grid-column: 2 / 3;
+	font-family: var(--font-prices-buttons);
+	font-size: 1.2rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:first-of-type {
+	position: fixed;
+	bottom: 10rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: var(--color-light-background-white);
+	width: 100%;
+	height: 4rem;
+	padding: 0 2.5rem;
+	font-family: var(--font-prices-buttons);
+	border-top: 1px solid var(--color-secondary-text-lightgray-darkbg);
+}
+
+.winkelmandje > div:nth-of-type(2) > div:first-of-type > p:first-of-type {
+	font-size: 1.1rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:first-of-type > p:last-of-type {
+	font-size: 1.3rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:last-of-type {
+	position: fixed;
+	bottom: 0;
+	height: 10rem;
+	width: 100%;
+	border-top: 1px solid var(--color-secondary-text-lightgray-darkbg);
+	background: var(--color-light-background-white);
+}
+
+.winkelmandje > div:nth-of-type(2) > div:last-of-type > p {
+	padding: 1rem 2.5rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:last-of-type > div {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 2.5rem;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:last-of-type > div button {
+	padding: 1rem 3rem;
+	width: 48%;
+	border: 1px solid rgba(0, 0, 0, 0.363);
+	font-size: 0.7rem;
+	font-weight: 500;
+	line-height: 1.3rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:last-of-type > div button:first-of-type:hover {
+	border: 1px solid var(--color-text-black);
+	background: var(--color-text-black);
+	color: var(--color-text-white);
+	transition: all 0.3s ease;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:last-of-type > div button:last-of-type {
+	border: 1px solid var(--color-text-black);
+	background: var(--color-text-black);
+	color: var(--color-text-white);
+	transition: all 0.3s ease;
+}
+
+.winkelmandje > div:nth-of-type(2) > div:last-of-type > div button:last-of-type:hover {
+	background: var(--color-secondary-text-gray);
+	transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+	.winkelmandje {
+		left: auto;
+		width: 32.5em;
+	}
+}
+
 
 			/*****************************/
 			/* MAIN, homepagina, (Index) */
