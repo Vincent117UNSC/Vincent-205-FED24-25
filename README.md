@@ -361,10 +361,50 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   Nb. ChatGpT en andere AI horen er ook bij.
   Nb. Vermeld de bronnen ook in je code.
 
-  1. [bron 1](https://mimo.org/glossary/html/video-tag)
+  1. [Video tag](https://mimo.org/glossary/html/video-tag)
       - Voor het vinden hoe de video tag in elkaar zit en te gebruiken is.
-  2. [bron 2](https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes)
+  2. [data attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes)
       - Voor het gebruik van de verschillende attributen binnen in de video tag.
-  3. ...
+  3. [Underline animatie tutorial](https://www.youtube.com/watch?v=n8dPFkT0dpE*/)
+      - Voor een annimatie van een lijn onder een element bij hover.
+  4. [Scroll-snap](https://www.30secondsofcode.org/css/s/scroll-snap/?utm_source=chatgpt.com)
+      - Leren heo de scroll-snap code werkt.
+  5. [:is()](https://www.sitepoint.com/css-is-where-has-pseudo-class-selectors/?utm_source=chatgpt.com)
+      - Leren over :is() voor specifiekere selectoren.
+  6. [Verdwijnende header bij scroll-up](https://stackoverflow.com/questions/31223341/detecting-scroll-direction)
+      - Het netjes verdwijnen van de header, top navbar, wanneer er omlaag gescrollt word en dat die terug komt bij het scrollen naar boven.
+  7. [Drag-scrolling](https://codepen.io/Gutto/pen/GBLPyN)
+      - Leren hoe ik elementen kan scrollen door te draggen.
+  8. [Infinite scrolling](https://codepen.io/supah/pen/VwegJwV)
+      - De basis voor het inifinite scroll element op de index (home pagina).
+  9. [Prepend](https://stackoverflow.com/questions/1279957/how-to-move-an-element-into-another-element)
+      - Zoeken naar manieren om elementen te verplaatsen naar andere parent elementen en weer terug.
+  10. Blijkbaar ook wat chatGPT gebruikt voor het menu, onder ander het zoeken van de bijbehorende parent element, maar dat was vorig jaar, en heb mijn best gedaan deze chat terug te vinden maar geen succes.
+  11. Copilot voor de infinite scroll:
+  <details>
+    <summary>screenshots</summary>
+    
+    <img src="readme-images/copilot-chat/1.png" width="500px" alt="copilot chat infinite scroll imgage 1">
+    <img src="readme-images/copilot-chat/2.png" width="500px" alt="copilot chat infinite scroll imgage 2">
+    <img src="readme-images/copilot-chat/3.png" width="500px" alt="copilot chat infinite scroll imgage 3">
+    <img src="readme-images/copilot-chat/4.png" width="500px" alt="copilot chat infinite scroll imgage 4">
+    <img src="readme-images/copilot-chat/5.png" width="500px" alt="copilot chat infinite scroll imgage 5">
+    <img src="readme-images/copilot-chat/6.png" width="500px" alt="copilot chat infinite scroll imgage 6">
+    <img src="readme-images/copilot-chat/7.png" width="500px" alt="copilot chat infinite scroll imgage 7">
+    <img src="readme-images/copilot-chat/8.png" width="500px" alt="copilot chat infinite scroll imgage 8">
+    <img src="readme-images/copilot-chat/9.png" width="500px" alt="copilot chat infinite scroll imgage 9">
+    <img src="readme-images/copilot-chat/10.png" width="500px" alt="copilot chat infinite scroll imgage 10">
+    <img src="readme-images/copilot-chat/11.png" width="500px" alt="copilot chat infinite scroll imgage 11">
+    <img src="readme-images/copilot-chat/12.png" width="500px" alt="copilot chat infinite scroll imgage 12">
+    <img src="readme-images/copilot-chat/13.png" width="500px" alt="copilot chat infinite scroll imgage 13">
+    <img src="readme-images/copilot-chat/14.png" width="500px" alt="copilot chat infinite scroll imgage 14">
+    <img src="readme-images/copilot-chat/15.png" width="500px" alt="copilot chat infinite scroll imgage 15">
+    <img src="readme-images/copilot-chat/16.png" width="500px" alt="copilot chat infinite scroll imgage 16">
+    <img src="readme-images/copilot-chat/17.png" width="500px" alt="copilot chat infinite scroll imgage 17">
+    <img src="readme-images/copilot-chat/18.png" width="500px" alt="copilot chat infinite scroll imgage 18">
+    <img src="readme-images/copilot-chat/19.png" width="500px" alt="copilot chat infinite scroll imgage 19">
+    <img src="readme-images/copilot-chat/20.png" width="500px" alt="copilot chat infinite scroll imgage 20">
+    <img src="readme-images/copilot-chat/21.png" width="500px" alt="copilot chat infinite scroll imgage 21">
+  </details>
 
 </details>

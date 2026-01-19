@@ -111,16 +111,6 @@ h3 {
 	order: 0;
 }
 
-a:focus, button:focus, input:focus {
-    outline: 3px solid #816356;
-}
-
-header a:focus, header button:focus, header input:focus,
-footer a:focus, footer button:focus, footer input:focus,
-.advent a:focus, .advent button:focus, .advent input:focus {
-    outline: 3px solid #c2ae99;
-}
-
 body input {
 	font-family: "Scala Sans Pro Ita";
 }
@@ -1242,6 +1232,10 @@ header div > div nav section h4 {
 	margin: 1em 0;
 	padding: 0 1.5em; 
 	width: calc(100% + 3em);
+	overscroll-behavior-x: contain;
+ 	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scroll-padding: 0 1.5rem;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
     transform: translateX(-1.5em);   
@@ -1251,8 +1245,8 @@ header div > div nav section h4 {
 	display: none;
 }
 
-.articles-container > div {
-	min-width: 14em;
+.articles-container.scrolling {
+	scroll-snap-type: none;
 }
 
 .articles-container > article {
@@ -1260,8 +1254,12 @@ header div > div nav section h4 {
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 9.25rem 9.25rem auto auto 4rem auto 0.6rem 1.1rem;
 	justify-items: start;
+}
+
+.articles-container > div, .articles-container > article {
 	width: 14em;
 	min-width: 14em;
+	scroll-snap-align: start;
 }
 
 .articles-container > article h4 {
