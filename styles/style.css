@@ -64,20 +64,23 @@
 	--font-titles: "ClassGarmnd BT", "Georgia", "Times New Roman", serif;
 	--font-prices-buttons: "ClassGarmnd BT", "Georgia", "Times New Roman", serif;
 	/* Spacing */
+	--spacing-main-left-right: 1.5rem;
 	--spacing-footer-left-right: 1.5rem;
 }
 
 @media (min-width: 768px) {
 	:root {
 		/* Spacing */
-	--spacing-footer-left-right: 3rem;
+		--spacing-main-left-right: 2rem;
+		--spacing-footer-left-right: 3rem;
 	}
 }
 
 @media (min-width: 1024px) {
 	:root {
 		/* Spacing */
-	--spacing-footer-left-right: 6rem;
+		--spacing-main-left-right: 3rem;
+		--spacing-footer-left-right: 6rem;
 	}
 }
 
@@ -1139,7 +1142,6 @@ header div > div nav section h3 {
 .index section:first-of-type > ul:first-of-type li {
 	flex-shrink: 0;
 	scroll-snap-align: start;
-	/*scroll-snap-stop: always;*/
 }
 
 .index section:first-of-type ul:first-of-type li a {
@@ -1397,7 +1399,7 @@ header div > div nav section h3 {
 .index section:nth-of-type(5) {
 	display: flex;
 	flex-direction: column;
-	padding: 1em 1.5em;
+	padding: 1em var(--spacing-main-left-right);
 }
 
 .articles-intro {
@@ -1463,15 +1465,15 @@ header div > div nav section h3 {
     overflow-y: hidden;
 	gap: 0.5em;
 	margin: 1em 0;
-	padding: 0 1.5em; 
-	width: calc(100% + 3em);
+	padding: 0 var(--spacing-main-left-right); 
+	width: calc(100% + (2*var(--spacing-main-left-right)));
 	overscroll-behavior-x: contain;
  	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
-	scroll-padding: 0 1.5rem;
+	scroll-padding: 0 var(--spacing-main-left-right);
 	scrollbar-width: none;
 	-ms-overflow-style: none;
-    transform: translateX(-1.5em);   
+    transform: translateX(calc(-1 * var(--spacing-main-left-right)));
 }
 
 .articles-container::-webkit-scrollbar {
@@ -1544,12 +1546,34 @@ header div > div nav section h3 {
 }
 
 .articles-container > article > ul li button {
+	position: relative;
 	border: none;
-	background: transparent;
+	background-color: transparent;
 	cursor: pointer;
 	width: 2.5rem;
 	height: 2.5rem;
 	z-index: 10;
+	transition: background-color 250ms linear;
+}
+
+.articles-container > article > ul li button:hover {
+	background-color: #F6F4F2;
+	transition: background-color 250ms linear;
+}
+
+.articles-container > article > ul li button::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0.5px;
+	background-color: var(--color-small-titles-darkbeige);
+	transition: width 250ms linear;
+}
+
+.articles-container > article > ul li button:hover::before {
+	width: 100%;
 }
 
 .articles-container > article > ul li button img {
@@ -1639,7 +1663,7 @@ header div > div nav section h3 {
 
 @media (min-width: 1024px) {
 	.articles-container {
-		padding: 2em 1.5em;
+		padding: 2em var(--spacing-main-left-right);
 	}
 
 	.articles-container > div {
@@ -1660,7 +1684,7 @@ header div > div nav section h3 {
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
     gap: 1.5em;
 	align-items: center;
-	margin: 2.5em 1.5em;
+	margin: 2.5em var(--spacing-main-left-right);
 }
 
 .index > article h2 {
@@ -1877,7 +1901,7 @@ header div > div nav section h3 {
 
 @media (min-width: 768px) {
 	.index section:nth-of-type(3) {
-		padding: 0 1.5em;
+		padding: 0 var(--spacing-main-left-right);
 	}
 
 	.index section:nth-of-type(3) nav ul li button {
@@ -1945,7 +1969,7 @@ header div > div nav section h3 {
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1em;
-	padding: 0 1.5rem;
+	padding: 0 var(--spacing-main-left-right);
 }
 
 .index section:nth-of-type(4) div:first-of-type {
@@ -1997,7 +2021,7 @@ header div > div nav section h3 {
 .index section:nth-of-type(6) {
 	display: flex;
 	flex-direction: column;
-	padding: 3rem 1.5rem;
+	padding: 3rem var(--spacing-main-index-left-right);
 	align-items: center;
 }
 
@@ -2015,13 +2039,13 @@ header div > div nav section h3 {
 	flex-wrap: nowrap;
 	gap: 0.6rem;
 	order: 2;
-	padding: 0 1.5em;
-	width: calc(100% + 3rem);
+	padding: 0 var(--spacing-main-left-right);
+	width: calc(100% + (2*var(--spacing-main-left-right)));
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
  	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
-	scroll-padding: 0 1.5rem;
+	scroll-padding: 0 var(--spacing-main-left-right);
 	list-style: none;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
@@ -2113,7 +2137,7 @@ header div > div nav section h3 {
 
 /* Laatste element van de .index (p) */
 .index > p {
-	padding: 1rem 1.5rem;
+	padding: 1rem var(--spacing-main-left-right);
 	font-size: 0.8rem;
 	font-style: italic;
 	text-align: center;
@@ -2181,12 +2205,12 @@ header div > div nav section h3 {
 	display: flex;
 	flex-wrap: nowrap;
 	gap: 0.5rem;
-	padding: 5rem 1.5rem 0;
+	padding: 5rem var(--spacing-main-left-right) 0;
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
-	scroll-padding: 0 1.5rem;
+	scroll-padding: 0 var(--spacing-main-left-right);
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 }
@@ -2202,7 +2226,7 @@ header div > div nav section h3 {
 .advent section:first-of-type div:last-of-type article {
 	display: flex;
 	flex-direction: column;
-	flex: 0 0 calc(100vw - 3rem);
+	flex: 0 0 calc(100vw - (2*var(--spacing-main-left-right)));
 	align-items: center;
 	scroll-snap-align: start;
 	border: 1px solid rgba(255, 255, 255, 0.6);
@@ -2322,7 +2346,7 @@ header div > div nav section h3 {
 .advent > article:first-of-type {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 1.5rem 1.5rem 3rem;
+	padding: 1.5rem var(--spacing-main-left-right) 3rem;
 	background-color: var(--color-background-christmas-darkred);
 }
 
@@ -2431,7 +2455,7 @@ header div > div nav section h3 {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1.5rem;
-	padding: 1.5rem;
+	padding: 1.5rem var(--spacing-main-left-right);
 	background: var(--color-background-christmas-red);
 }
 
@@ -2578,7 +2602,7 @@ header div > div nav section h3 {
 	column-gap: 5%;
 	position: relative;
 	background: var(--color-background-christmas-red);
-	padding: 1.5rem 1.5rem 0;
+	padding: 1.5rem var(--spacing-main-left-right) 0;
 	height: 11em;
 	overflow: hidden;
 }
@@ -2668,7 +2692,7 @@ header div > div nav section h3 {
 	flex-direction: column;
 	align-items: center;
 	background: var(--color-background-christmas-darkred);
-	padding: 1rem 1.5rem 0;
+	padding: 1rem var(--spacing-main-left-right) 0;
 }
 
 .advent > section:nth-of-type(4) h4 {
