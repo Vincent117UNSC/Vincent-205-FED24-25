@@ -2021,7 +2021,7 @@ header div > div nav section h3 {
 .index section:nth-of-type(6) {
 	display: flex;
 	flex-direction: column;
-	padding: 3rem var(--spacing-main-index-left-right);
+	padding: 3rem 0;
 	align-items: center;
 }
 
@@ -2040,7 +2040,6 @@ header div > div nav section h3 {
 	gap: 0.6rem;
 	order: 2;
 	padding: 0 var(--spacing-main-left-right);
-	width: calc(100% + (2*var(--spacing-main-left-right)));
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
  	scroll-snap-type: x mandatory;
